@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <title>پرسشنامه جهت بررسی مشکلات قبل از عمل</title>
+    <meta name="author" content="masoud" >
+    <meta name="viewport" content="width=device-width">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="../css/forms.css" rel="stylesheet">
+    <link href="../css/toastr.css" rel="stylesheet">
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../js/toastr.js"></script>
+</head>
+<style>
+    .screen{
+        background-color:#c0c0c0;
+    }
+</style>
+<body class="body" style="background-color: #ffffff">
+<div class="container">
+    <form class="form-horizontal" method="POST" action="http://172.15.0.131:3000/form1">
+    <fieldset>
+    <div class="header screen">
+        <div id="header" class="col-xs-9 font-size-xlarge" style="font-family: font-style-2; margin-top: -10px;">
+            پرسشنامه جهت بررسی مشکلات قبل از عمل
+        </div>
+        <div class="col-xs-3">
+            <img class="im" src="../images/header.png">
+        </div>
+    </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button id="res-btn" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="col-xs-pull-7">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right" style="font-family: font-style-3;">
+                        <li><a id="name-show" href="#">نام و نام خانوادگی کاربر</a></span></li>
+                        <li><a id="anesthesia-surgeon-show" href="#">اسکن شماره ی پرونده یا کد گزارش</a></li>
+                        <li><a href="#">شماره ی پرونده</a></li>
+                        <li><a id="today-date" href="#" data-toggle="modal" data-target="#surgeon"></a></li>
+                        <li><a id="time" href="#"></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="col-md-12">
+        <legend style="font-family: font-style-2;">مشخصات شناسنامه ای</legend>
+        <div class="form-group ">
+            <label for="name" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نام</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input name="name" type="text" class="form-control" id="name" style="font-family: font-style-1;" placeholder="نام بیمار">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="last-name" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نام خانوادگی</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input name="last_name" type="text" class="form-control" id="last-name" style="font-family: font-style-1;" placeholder="نام خانوادگی بیمار">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="national-code" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">کدملی</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input name="personl_id" type="text" class="form-control" id="national-code" style="font-family: font-style-1;" placeholder="کد ملی">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sex" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">جنسیت</label>
+            <div class="col-md-3 col-md-offset-7">
+                <select name="sex" id="sex" class="form-control" style="font-family: font-style-3;">
+                    <option>مرد</option>
+                    <option >زن</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">سن</label>
+            <div class="col-md-3 col-md-offset-7">
+                <input name="age" id="age" type="number" class="form-control" style="font-family: font-style-1;" placeholder="سن بیمار">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="heigth" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">قد</label>
+            <div class="col-md-3 col-md-offset-7">
+                <input name="height" type="text" class="form-control" id="heigth" style="font-family: font-style-1;" placeholder="قد بیمار">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="weight" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">وزن بیمار</label>
+            <div class="col-md-3 col-md-offset-7">
+                <input name="width" type="text" class="form-control" id="weight" style="font-family: font-style-1;" placeholder="وزن بیمار">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-group">
+            <label for="cat-op-list" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نوع عمل جراحی</label>
+            <div  class="col-md-5 col-md-offset-5">
+                <select id="cat-op-list" class="form-control" style="font-family: font-style-3;">
+                    <option>خالی</option>
+                    <option >قلب</option>
+                    <option>بایپس عروقی</option>
+                    <option>همه</option>
+                </select>
+            </div>
+        </div>
+        <div id="op-list-div" class="form-group list-hide">
+            <div class="col-md-4 col-md-offset-5">
+                <select name="operation_kind" id = "op-list" class="form-control" style="font-family: font-style-3;">
+                    <option id="option0" class="list-hide">خالی</option>
+                    <option id="option1" class="list-hide">قلبی 1 </option>
+                    <option id="option2" class="list-hide">قلبی 2</option>
+                    <option id="option3" class="list-hide">عروقی 1</option>
+                    <option id="option4" class="list-hide">عروقی 2</option>
+                    <option id="option5" class="list-hide">بیشتر</option>
+                </select>
+            </div>
+            <!--this is hide////////////////:D -->
+            <button id="popup" type="button" class="list-hide" data-toggle="modal" data-target="#op-list-popup"></button>
+            <!--/////////////////////////////////////////////////////-->
+        </div>
+        <!-- Windows Popup 1 for Operation -->
+        <div class="modal fade" id="op-list-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="op-list-popuplable" style="text-align: center">لیست کامل عمل های جراحی</h4>
+                    </div>
+                    <div class="modal-body">
+                            <select id = "op-list-more" class="form-control" style="font-family: font-style-3;">
+                                <option>قلبی 3 </option>
+                                <option>قلبی 4</option>
+                                <option>قلبی 9</option>
+                                <option>قلبی 5</option>
+                                <option>قلبی 6</option>
+                                <option>قلبی 7</option>
+                                <option>قلبی 8</option>
+                                <option>عروقی 3</option>
+                                <option>عروقی 4</option>
+                                <option>عروقی 5</option>
+                                <option>عروقی 6</option>
+                                <option>عروقی 7</option>
+                                <option>عروقی 8</option>
+                                <option>عروقی 9</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="op-list-more-choice" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">خروج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Windows Popup 2 for Drugs -->
+        <div class="modal fade" id="drugs-list-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="drugs-list-popuplable" style="text-align: center">لیست کامل عمل های جراحی</h4>
+                    </div>
+                    <div class="modal-body">
+                        <select id = "drugs-list-more" class="form-control" style="font-family: font-style-3;">
+                            <option>داروی 1</option>
+                            <option>داروی 2</option>
+                            <option>داروی 3</option>
+                            <option>داروی 4</option>
+                            <option>داروی 5</option>
+                            <option>داروی 6</option>
+                            <option>داروی 7</option>
+                            <option>داروی 8</option>
+                            <option>داروی 9</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="drugs-list-more-choice" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">خروج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Windows Popup -->
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-group">
+            <label for="op-kind" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نام جراح</label>
+            <div class="col-md-5 col-md-offset-5">
+                <select name="surgeon_name" id = "op-kind" class="form-control" style="font-family: font-style-3;">
+                    <option>خالی</option>
+                    <option>متخصص قلب 1</option>
+                    <option>متخصص قلب 2</option>
+                    <option>متخصص عروقی 1</option>
+                    <option>متخصص عروقی 2</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 ">
+        <div class="form-group">
+            <label for="op-date" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">تاریخ پیشنهادی عمل جراحی</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input name="suggestion_operation_time" type="datetime" class="form-control" id="op-date" style="font-family: font-style-1;" placeholder="سال/ماه/روز">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <br/>
+        <legend style="font-family: font-style-2;">لیست اعمال جراحی که تاکنون داشته اید</legend>
+    </div>
+    <div class="col-md-12">
+        <div id="op-kind-patient-div" class="form-group">
+            <label for="op-kind-patient" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نوع عمل جراحی</label>
+            <div class="col-md-5 col-md-offset-5">
+                <select id = "op-kind-patient" class="form-control" style="font-family: font-style-3;">
+                    <option>خالی</option>
+                    <option>قلبی 1 </option>
+                    <option>قلبی 2</option>
+                    <option>عروقی 1</option>
+                    <option id="more-op-patient">بیشتر</option>
+                </select>
+                <span id="error-list-text" class="help-block list-hide">لیست عمل جراحی نمی تواند خالی باشد</span>
+                <button id="popup-2" type="button" class="list-hide" data-toggle="modal" data-target="#myModal2"></button>
+            </div>
+        </div>
+        <div id="op-date-patient-div" class="form-group">
+            <label for="op-date-patient" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">تاریخ عمل جراحی</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input   type="datetime" class="form-control" id="op-date-patient" style="font-family: font-style-1;" placeholder="سال/ماه/روز">
+                <span id="error-date-text" class="help-block list-hide">تاریخ عمل جراحی نمیتواند خالی باشد حداقل یکی از سال یا ماه یا روز باید وارد شود</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="op-problem" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">مشکلات احتمالی حین عمل</label>
+            <div class="col-md-5 col-md-offset-5">
+                <select id = "op-problem" class="form-control" style="font-family: font-style-3;">
+                    <option>خالی</option>
+                    <option>دیر بیدار شدن</option>
+                    <option>تهوع بعد عمل جراحی</option>
+                    <option>سایر</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-6">
+                    <button id="save-list" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="table-op-div" class="col-xs-11 list-hide">
+                <table class="table table-striped" id="table_op">
+                    <tr id="op-first-row">
+                        <td style="font-family: font-style-2;"><h4>نوع عمل جراحی</h4></td>
+                        <td style="font-family: font-style-2;"><h4>تاریخ عمل جراح</h4></td>
+                        <td style="font-family: font-style-2;"><h4>مشکلات احتمالی حین عمل</h4></td>
+                        <td style="font-family: font-style-2;"><h4>ویرایش</h4></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <legend style="font-family: font-style-2;">نام هر دارویی را که طی یکماه اخیر استفاده کردید</legend>
+    </div>
+    <div class="col-md-12">
+        <div id="drugs_list_div" class="form-group">
+            <label for="drugs_list" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">لیست داروها</label>
+            <div class="col-md-5 col-md-offset-5">
+                <select id = "drugs_list" class="form-control" style="font-family: font-style-3;">
+                    <option>خالی</option>
+                    <option>داروی 1</option>
+                    <option>داروی 2</option>
+                    <option>داروی 3</option>
+                    <option id="more-drugs">بیشتر</option>
+                </select>
+                <span id="error-list-text-drugs" class="help-block list-hide">لیست دارو ها نمی تواند خالی باشد</span>
+                <!--this is hide////////////////:D -->
+                <button id="popup-1" type="button" class="list-hide" data-toggle="modal" data-target="#drugs-list-popup"></button>
+                <!--/////////////////////////////////////////////////////-->
+            </div>
+        </div>
+        <div id="drugs-explain-div" class="form-group">
+            <label for="drugs-explain" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نحوه ی استفاده</label>
+            <div class="col-md-5 col-md-offset-5">
+                <input type="text" class="form-control" id="drugs-explain" style="font-family: font-style-1;" placeholder="توضیحات بیشتر">
+                <span id="error-explain-text" class="help-block list-hide">توضیحات مربوط به دارو نمیتواند خالی باشد</span>
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-6">
+                    <button id="save-list2" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="table-drugs-div" class="col-xs-11 list-hide">
+                <table class="table table-striped" id="table_drugs">
+                    <tr id="drugs-first-row">
+                        <td style="font-family: font-style-2;"><h4>داروی انتخاب شده</h4></td>
+                        <td style="font-family: font-style-2;"><h4>نحوه ی استفاده</h4></td>
+                        <td style="font-family: font-style-2;"><h4>ویرایش</h4></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <br/>
+        <legend style="font-family: font-style-2;">سوالات قبل از عمل لطفا به همه سوالات صحیح پاسخ دهید</legend>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group row">
+            <h4>
+                <label class="col-xs-9 control-label pull-right" style="font-family: font-style-3;">آیا استروئید (کورتیزون، متیل پردنیزلون و دگزامتازون) در سال گذشته استفاده کردید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="steroid_cortisone_methylprednisolone_dexamethasone_used_last_year" type="checkbox"  class="form-control" id="estroyd" style="font-family: font-style-1;">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-xs-9 control-label pull-right" style="font-family: font-style-3;">آیا تا بحال سیگار کشیده اید؟    </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="smoker_addiction" type="checkbox"  class="form-control" id="smoker">
+            </div>
+        </div>
+    </div>
+    <div id="smoker-div" class="col-md-12 list-hide">
+        <div class="form-group">
+            <h4>
+                <label  class="col-xs-6 control-label pull-right" style="font-family: font-style-3;">تعداد نخ مصرفی در روز</label>
+            </h4>
+            <div class="col-md-3 col-md-offset-3">
+                <input name="cigar_many" type="text" class="form-control" id="smoke-many" style="font-family: font-style-1;" placeholder="تعداد نخ مصرفی در روز">
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>
+                <label class="col-xs-6 control-label pull-right" style="font-family: font-style-3;">چند سال سیگار مصرف کردید؟</label>
+            </h4>
+            <div class="col-md-3 col-md-offset-3">
+                <input name="year_use_smoke" type="text" class="form-control" id="smoke-year" style="font-family: font-style-1;" placeholder="سال">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-xs-9 control-label pull-right" style="font-family: font-style-3;">آیا در حال حاضر سیگار می کشید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="smoker_now"  type="checkbox"  class="form-control" id="smoker-now" style="font-family: font-style-1;">
+                <input id="smoker-now-hide" name="smoker_now" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-7 control-label pull-right" style="font-family: font-style-3;">تا بحال الکل مصرف کرده اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="alchol_use"  type="checkbox" class="form-control" id="alcohalic" style="font-family: font-style-1;">
+                <input id="alcohalic-hide" name="alchol_use" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا در حال حاضر یا تا بحال مواد روان گردان(قرص اکس، ...) مصرف کرده اید؟(این موضوع برای سلامت شماست) </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="drug_use"  type="checkbox" class="form-control" id="danger-drugs" style="font-family: font-style-1;">
+                <input id="danger-drugs-hide" name="drug_use" type="hidden" value="false">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">می توانید یک طبقه پله را بدون توقف بالا بروید؟ </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="stair_up" type="checkbox" class="form-control" id="one-floor-stair" style="font-family: font-style-1;">
+                <input id="one-floor-stair-hide" name="stair_up" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا تابحال مشکل قلبی داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="heart_problem" id="heart-problem"  type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="heart-problem-hide" name="heart_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="heart-problem-on" class="col-md-12 list-hide">
+        <div id="heart_problem_div" class="form-group">
+            <div class="col-md-8 col-md-offset-2">
+                <select id = "heart-problem-list" class="form-control" style="font-family: font-style-3;">
+                    <option>درد سینه</option>
+                    <option>فشار بر قفسه</option>
+                    <option>حمله قلبی</option>
+                    <option>نوار قلب غیرطبیعی</option>
+                    <option>ضربان قلب نامنظم</option>
+                    <option>صدای اضافه قلب</option>
+                    <option>تپش قلب</option>
+                    <option>نارسایی قلب</option>
+                    <option>آب آوردن قلب</option>
+                    <option>آب آوردن ریه</option>
+                    <option>به شما توصیه شده است که قبل از دندانپزشکی آنتی بیوتیک مصرف کنی</option>
+                </select>
+                <span id="heart-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-5 col-md-offset-5">
+                <button id="check-list2" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-2">
+                <textarea name="heart_problem_list" id="save-heart-problem" class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-xs-9 control-label pull-right" style="font-family: font-style-3;">آیا سابقه ای از فشار خون بالا داشته اید یا مبتلا به بیماری فشار خون هستید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="blood_presure"  type="checkbox"  class="form-control" id="blood-presure" style="font-family: font-style-1;">
+                <input id="blood-presure-hide" name="blood_presure" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا سابقه ای از قند بالای خون داشته اید یا مبتلا به بیماری قند خون (دیابت) هستید؟  </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction0" style="direction: ltr">
+                <input name="diabetes"  type="checkbox" class="form-control" id="diabeti" style="font-family: font-style-1;">
+                <input id="diabeti-hide" name="diabetes" type="hidden" value="false">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا دچار مشکلات ریوی شده اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="lung_problem" type="checkbox" class="form-control" id="breath-problem" style="font-family: font-style-1;">
+                <input id="breath-problem-hide" name="lung_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="breath-problem-on" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="breath_problem_div"  class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "breath-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>تنگی نفس</option>
+                            <option>آمفیزم</option>
+                            <option>برونشیت</option>
+                            <option>آسم</option>
+                            <option>سل</option>
+                            <option>عکس قفسه سینه مشکل دار</option>
+                            <option>سابقه حساسیت تنفسی</option>
+                            <option>سابقه استفاده از اسپری تنفسی</option>
+                        </select>
+                        <span id="breath-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list3" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="lung_problem_list" id="save-breath-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">در حال حاضر یا به تازگی مریضی داشته اید که با سرماخودگی، تب، لرز، آنفولانزا یا سرفه خلط دار همراه بوده است؟  </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="cold_etc_checkbox"  type="checkbox" class="form-control" id="sickness" style="font-family: font-style-1;">
+                <input id="sickness-hide" name="cold_etc_checkbox" type="hidden" value="false">
+
+            </div>
+        </div>
+    </div>
+    <div id="sickness-on" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <input name="cold_etc" id="sickness-explain"  type="text" class="form-control" style="font-family: font-style-1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">خودتان یا کسی از خانوادیتان تا بحال مشکل خونریزی شدیدی داشته اند؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="bleeding_problem" type="checkbox" class="form-control" id="bleeding-problem" style="font-family: font-style-1;">
+                <input id="bleeding-problem-hide" name="bleeding_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="bleeding-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="bleeding_problem_div" class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "bleeding-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>خونریزی زیاد از دماغ</option>
+                            <option>لثه</option>
+                            <option>موقع دندان کشیدن</option>
+                            <option> موقع عمل جراحی</option>
+                        </select>
+                        <span id="bleeding-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list4" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="bleeding_problem_list" id="save-bleeding-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">هیچ مشکل خونی داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="blood_problem" type="checkbox" class="form-control" id="blood-problem" style="font-family: font-style-1;">
+                <input id="blood-problem-hide" name="blood_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="blood-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="blood_problem_div" class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "blood-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>کم خونی</option>
+                            <option>سرطان خون</option>
+                            <option>کم خونی داسی شکل</option>
+                            <option>لخته شدن سریع خون</option>
+                            <option> غلظت خون</option>
+                            <option>دریافت خون</option>
+                        </select>
+                        <span id="blood-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list5" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="blood_problem_list" id="save-blood-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا تا به حال مشکلات کلیوی داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="kidney_problem" type="checkbox" class="form-control" id="kidney-problem" style="font-family: font-style-1;">
+                <input id="kidney-problem-hide" name="kidney_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="kidney-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="kidney_problem_div"  class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "kidney-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>سنگ</option>
+                            <option>دیالیز</option>
+                            <option>نارسایی کلیه</option>
+                        </select>
+                        <span id="kidney-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list6" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="kidney_problem_list" id="save-kidney-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا تا به حال مشکلاتی کبدی داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="liver_problem" type="checkbox" class="form-control" id="liver-problem" style="font-family: font-style-1;">
+                <input id="liver-problem-hide" name="liver_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="liver-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "liver-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>سیروز</option>
+                            <option>هپاتیت</option>
+                            <option>زردی</option>
+                        </select>
+                        <span id="liver-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list7" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="liver_problem_list" id="save-liver-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-xs-9 control-label pull-right" style="font-family: font-style-3;">آیا تا بحال مشکلات سیستم گوارشی داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="digestion_problem" type="checkbox" class="form-control" id="digestion-problem" style="font-family: font-style-1;">
+                <input id="digestion-problem-hide" name="digestion_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="digestion-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="digestion_problem_div"  class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "digestion-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>سوزش سردل مکرر</option>
+                            <option>فتخ شکمی</option>
+                            <option>زخم معده یا روده</option>
+                        </select>
+                        <span id="digestion-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list8" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="digestion_problem_list" id="save-digestion-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا تا به حال مشکلات زیر را داشته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="general_problem" type="checkbox" class="form-control" id="general-problem" style="font-family: font-style-1;">
+                <input id="general-problem-hide" name="general_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="general-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="general_problem_div"  class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "general-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>کمردرد فعلی</option>
+                            <option>سابقه کمردردمکرر</option>
+                            <option>درد گردن/فک</option>
+                            <option>آرتریت</option>
+                            <option>روماتوئید(روماتیسم) </option>
+                            <option>آرتروز</option>
+                            <option>مشکل مفصل فک</option>
+                            <option>پوکی استخوان</option>
+                            <option>غده تیروئید (کم کاری تیروئید)</option>
+                            <option>پرکاری تیروئید</option>
+                            <option>گواتر</option>
+                            <option>بزرگی غده تیروئید</option>
+                            <option>صرع</option>
+                            <option>تشنج</option>
+                            <option>سکته مغزی</option>
+                            <option>ضعف صورت یا دست یا پا</option>
+                            <option>سختی در صحبت کردن</option>
+                            <option>لکنت زبان</option>
+                            <option>درد کرامپی در پیاده روی</option>
+                            <option>مشکل شنوایی</option>
+                            <option>مشکل حافظه</option>
+                            <option>تاری دید</option>
+                            <option>آب مروارید</option>
+                            <option>آب سیاه</option>
+                            <option>آبریزش یا قرمزی چشم در حال حاضر</option>
+                        </select>
+                        <span id="general-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list9" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="general_problem_list" id="save-general-problem"  class="form-control" style="font-family: font-style-1;" rows="4" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا تابحال بخاطر سرطان تحت کموتراپی با رادیوتراپی قرار گرفته اید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="radiotrapi_chemotherapy" id="cancer" type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="cancer-hide" name="radiotrapi_chemotherapy" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="woman-option" class="col-md-12 list-hide">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-4 control-label pull-right" style="font-family: font-style-3;">19- آیا باردار هستید؟</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="pregnency" id="pregnant" type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="pregnant-hide" name="pregnency" type="hidden" value="false">
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>
+                <label  class="col-sm-4 control-label pull-right" style="font-family: font-style-3;">--آخرین قاعدگی تان چه زمانی بوده است؟</label>
+            </h4>
+            <div class="col-md-5 col-md-offset-3">
+                <input name="last_menstruation" type="text" class="form-control" style="font-family: font-style-1;" placeholder="سال/ماه/روز">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div id="child-check" class="form-group list-hide">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">درهنگام زایمان یا بیماری مادرزادی داشته است؟  </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="pregency_issue" id="pregnant-problem" type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="pregnant-problem-hide" name="pregency_issue" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;"> آیا تابحال طی جراحی یا بیهوشی مشکل داشته اید</label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="anesthesia_problem"  type="checkbox" class="form-control" id="anesthesia-problem" style="font-family: font-style-1;">
+                <input id="anesthesia-problem-hide" name="anesthesia_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div id="anesthesia-problem-div" class="col-md-12 list-hide">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div id="anesthesia_problem_div"  class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <select id = "anesthesia-problem-list" class="form-control" style="font-family: font-style-3;">
+                            <option>تهوع</option>
+                            <option>استفراغ شدید بعدجراحی</option>
+                            <option>هیپرترمی بدخیم (خود/همخونیتان)</option>
+                            <option>گیجی طولانی بعدعمل</option>
+                            <option>اضطراب شدید قبل عمل</option>
+                            <option>تنگی نفس/مشکلات کارگذاری لوله تنفسی </option>
+                        </select>
+                        <span id="anesthesia-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-5">
+                        <button id="check-list10" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-2">
+                        <textarea name="anesthesia_problem_list" id="save-anesthesia-problem"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label  class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">آیا ناتوان از انجام امور روزمره شخصی خود هستید؟      </label>
+            </h4>
+            <div for="daily-work" class="col-md-1 checkbox-direction">
+                <input name="daily_problem" id="daily-work" type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="daily_problem-hide" name="daily_problem" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">خرخر شبانه دارید؟      </label>
+            </h4>
+            <div class="col-md-1 checkbox-direction">
+                <input name="sleep_appena" id="sleep-apnea" type="checkbox" class="form-control" style="font-family: font-style-1;">
+                <input id="sleep-apnea-hide" name="sleep_appena" type="hidden" value="false">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-9 control-label pull-right" style="font-family: font-style-3;">هر مشکلی که در لیست به آن اشاره نشده را ذکر کنید</label>
+            </h4>
+            <div class="col-md-5">
+                <textarea name="other_problems" class="form-control" style="font-family: font-style-1;" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <h4>
+                <label class="col-sm-10 control-label pull-right" style="font-family: font-style-3;">سوالات اضافه ای که در خصوص بیهوشی دارید را مرقوم بفرمایید</label>
+            </h4>
+            <div class="col-md-5">
+                <textarea name="anesthesia_question" class="form-control" style="font-family: font-style-1;" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <legend style="font-family: font-style-2;">بعد از پاسخ گویی به تمام سولات فرم را ارسال کنید</legend>
+        <div class="form-group">
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-1">
+                    <button id="submit" type="submit" class="btn btn-success btn-lg">ارسال</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </fieldset>
+    <input id="toastr" type="hidden" value="<%= typeof toastr!='undefined' ? toastr:''%>" />
+    </form>
+</div>
+</body>
+</html>

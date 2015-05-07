@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <title>فرم ثبت اطلاعات بیمار</title>
+    <meta name="author" content="Danial Vafadar">
+    <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/forms-min.css" rel="stylesheet">
+    <link href="../css/datepicker.css" rel="stylesheet">
+    <!--------------------------------------------------------------------->
+</head>
+<style>
+    .screen{
+        background-color:#c0c0c0;
+    }
+</style>
+<body class="body" style="background-color: #ffffff">
+<div class="container">
+    <form class="form-horizontal" method="POST" action="">
+        <fieldset>
+            <div class="header screen">
+                <div id="header" class="col-xs-10 font-size-xlarge" style="font-family: font-style-2; margin-top: -10px;">
+                    فرم ثبت اطلاعات بیمار
+                </div>
+                <div class="col-xs-2">
+                    <img class="im" src="../images/header.png">
+                </div>
+            </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button id="res-btn" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="col-xs-pull-7">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" style="font-family: font-style-3;">
+                                <li><a id="name-show" href="#">نام نام خانوادگی</a></li>
+                                <li><a id="file_num_show" href="#">شماره ی پرونده</a></li>
+                                <li><a id="today-date" href="#" data-toggle="modal" data-target="#surgeon"></a></li>
+                                <li><a id="time" href="#"></a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="col-md-12">
+                <legend style="font-family: font-style-2;">مشخصات شناسنامه ای</legend>
+                <div class="form-group ">
+                    <label for="name" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نام</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input name="name" type="text" class="form-control" id="name" style="font-family: font-style-1;" placeholder="نام بیمار">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="last_name" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نام خانوادگی</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input name="last_name" type="text" class="form-control" id="last_name" style="font-family: font-style-1;" placeholder="نام خانوادگی بیمار">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="national-code" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">کدملی</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input name="personal_id" type="number" class="form-control" id="national-code" style="font-family: font-style-1;" placeholder="کد ملی">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="file_number" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">شماره ی پرونده</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input name="file_number" type="number" class="form-control" id="file_number" style="font-family: font-style-1;" placeholder="شماره ی پرونده">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">جنسیت</label>
+                    <div class="col-md-3 col-md-offset-7">
+                        <select name="sex" id="sex" class="form-control" style="font-family: font-style-3;">
+                            <option>مرد</option>
+                            <option >زن</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6">
+                        <label>تاریخ تولد</label>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="text" name="birth_year" class="form-control" placeholder="سال" id="birth_year">
+                                </div>
+                                <div class="col-xs-5">
+                                    <select id="birth_month" name="birth_month" class="form-control">
+                                        <option value= 1>&nbsp; فروردین
+                                        <option value= 2>&nbsp; اردیبهشت
+                                        <option value= 3>&nbsp; خرداد
+                                        <option value= 4>&nbsp; تیر
+                                        <option value= 5>&nbsp; مرداد
+                                        <option value= 6>&nbsp; شهریور
+                                        <option value= 7>&nbsp; مهر
+                                        <option value= 8>&nbsp; آبان
+                                        <option value= 9>&nbsp; آذر
+                                        <option value= 10>&nbsp; دی
+                                        <option value= 11>&nbsp; بهمن
+                                        <option value= 12>&nbsp; اسفند
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="birth_day" name="birth_day" class="form-control">
+                                        <option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                                        <option value="6">6<option value="7">7<option value="8">8<option value="9">9<option value="10">10
+                                        <option value="11">11<option value="12">12<option value="13">13<option value="14">14<option value="15">15
+                                        <option value="16">16<option value="17">17<option value="18">18<option value="19">19<option value="20">20
+                                        <option value="21">21<option value="22">22<option value="23">23<option value="24">24<option value="25">25
+                                        <option value="26">26<option value="27">27<option value="28">28<option value="29">29<option value="30">30
+                                        <option value="31">31
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group">
+                    <label for="heigth" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">قد</label>
+                    <div class="col-md-3 col-md-offset-7">
+                        <input name="height" type="text" class="form-control" id="heigth" style="font-family: font-style-1;" placeholder="قد بیمار">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="weight" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">وزن بیمار</label>
+                    <div class="col-md-3 col-md-offset-7">
+                        <input name="width" type="text" class="form-control" id="weight" style="font-family: font-style-1;" placeholder="وزن بیمار">
+                    </div>
+                </div>
+                <legend style="font-family: font-style-2;">آزمایشات</legend>
+                <div class="form-group">
+                    <label for="experiment_list" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نوع آزمایش</label>
+                    <div  class="col-md-5 col-md-offset-5">
+                        <select id="experiment_list" class="form-control" style="font-family: font-style-3;">
+                            <option>خالی</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="experiment_list" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">پاسخ</label>
+                    <div  class="col-md-3 col-md-offset-7">
+                        <input id="answer" name="answer" type="number" class="form-control" style="font-family: font-style-3;"/>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-4 col-sm-offset-6">
+                        <label class="col-sm-offset-3" style="font-family: font-style-3;">تاریخ پذیرش</label>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="text" name="assent_year" class="form-control" placeholder="سال" id="assent_year">
+                                </div>
+                                <div class="col-xs-5">
+                                    <select id="assent_month" name="assent_month" class="form-control">
+                                        <option value= 1> فروردین</option>
+                                        <option value= 2> اردیبهشت</option>
+                                        <option value= 3>خرداد</option>
+                                        <option value= 4> تیر</option>
+                                        <option value= 5> مرداد</option>
+                                        <option value= 6> شهریور</option>
+                                        <option value= 7> مهر</option>
+                                        <option value= 8> آبان</option>
+                                        <option value= 9> آذر</option>
+                                        <option value= 10> دی</option>
+                                        <option value= 11> بهمن</option>
+                                        <option value= 12> اسفند</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="assent_day" name="assent_day" class="form-control">
+                                        <option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                                        <option value="6">6<option value="7">7<option value="8">8<option value="9">9<option value="10">10
+                                        <option value="11">11<option value="12">12<option value="13">13<option value="14">14<option value="15">15
+                                        <option value="16">16<option value="17">17<option value="18">18<option value="19">19<option value="20">20
+                                        <option value="21">21<option value="22">22<option value="23">23<option value="24">24<option value="25">25
+                                        <option value="26">26<option value="27">27<option value="28">28<option value="29">29<option value="30">30
+                                        <option value="31">31
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3 col-sm-offset-7">
+                        <label style="font-family: font-style-3;">ساعت پذیرش</label>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="number" id="assent_time_min" name="assent_time" class="form-control" placeholder="ساعت" style="font-family: font-style-3;"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="number" id="assent_time_hour" name="assent_time" class="form-control" placeholder="دقیقه" style="font-family: font-style-3;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-offset-6">
+                        <label class="col-sm-offset-3" style="font-family: font-style-3;">تاریخ جواب‌</label>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="text" name="ans_year" class="form-control" placeholder="سال" id="ans_year">
+                                </div>
+                                <div class="col-xs-5">
+                                    <select id="ans_month" name="ans_month" class="form-control">
+                                        <option value= 1> فروردین</option>
+                                        <option value= 2> اردیبهشت</option>
+                                        <option value= 3>خرداد</option>
+                                        <option value= 4> تیر</option>
+                                        <option value= 5> مرداد</option>
+                                        <option value= 6> شهریور</option>
+                                        <option value= 7> مهر</option>
+                                        <option value= 8> آبان</option>
+                                        <option value= 9> آذر</option>
+                                        <option value= 10> دی</option>
+                                        <option value= 11> بهمن</option>
+                                        <option value= 12> اسفند</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select id="ans_day" name="ans_day" class="form-control">
+                                        <option value="1">1<option value="2">2<option value="3">3<option value="4">4<option value="5">5
+                                        <option value="6">6<option value="7">7<option value="8">8<option value="9">9<option value="10">10
+                                        <option value="11">11<option value="12">12<option value="13">13<option value="14">14<option value="15">15
+                                        <option value="16">16<option value="17">17<option value="18">18<option value="19">19<option value="20">20
+                                        <option value="21">21<option value="22">22<option value="23">23<option value="24">24<option value="25">25
+                                        <option value="26">26<option value="27">27<option value="28">28<option value="29">29<option value="30">30
+                                        <option value="31">31
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group"></div>
+                <div class="row form-group">
+                    <div class="col-md-3 col-sm-offset-7">
+                        <label style="font-family: font-style-3;">ساعت جواب</label>
+                        <div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input type="number" id="ans_time_min" name="ans_time_min" class="form-control" placeholder="ساعت" style="font-family: font-style-3;"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="number" id="ans_time_hour" name="ans_time_hour" class="form-control" placeholder="دقیقه" style="font-family: font-style-3;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <legend style="font-family: font-style-2;">پس از تکمیل اطلاعات فرم را ثبت کنید</legend>
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-1">
+                        <button style="width: 50%" id="submit" type="submit" class="btn btn-success btn-lg" style="font-family: font-style-3;"><span style="font-family: font-style-4;">ثبت مریض در دیتابیس</span></button>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="date" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">تاریخ</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input type="text" value="02/16/12" data-date-format="mm/dd/yy" class="datepicker" >
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/datepicker.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker();
+    })
+</script>
+<script src="../js/time-min.js"></script>
+<script src="../js/his.js"></script>
+</html>

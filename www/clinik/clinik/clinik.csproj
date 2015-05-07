@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{D9BE9D2A-56A8-4FF2-BC7E-A3E5CFDA97F9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>clinik</RootNamespace>
+    <AssemblyName>clinik</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data" />
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="web.config" />
+    <Content Include="main.aspx" />
+    <Content Include="view\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="view\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="view\bootstrap\css\bootstrap.css" />
+    <Content Include="view\bootstrap\css\bootstrap.min.css" />
+    <Content Include="view\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="view\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="view\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="view\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="view\bootstrap\js\bootstrap.js" />
+    <Content Include="view\bootstrap\js\bootstrap.min.js" />
+    <Content Include="view\css\carousel.css" />
+    <Content Include="view\css\font.css" />
+    <Content Include="view\font\B_Nazanin+ Black.ttf" />
+    <Content Include="view\font\B_Nazanin+ Bold.ttf" />
+    <Content Include="view\font\B_Nazanin_Regular.ttf" />
+    <Content Include="view\font\quran_taha.ttf" />
+    <Content Include="view\javascript\jquary\jquery-2.1.3.js" />
+    <Content Include="view\javascript\jquary\jquery-2.1.3.min.js" />
+    <Content Include="view\images\doctor-drawing.jpg" />
+    <Content Include="view\images\patient.jpg" />
+    <Content Include="view\css\shadow.css" />
+    <Content Include="view\css\background.css" />
+    <Content Include="view\icu_dan\js\encrypt.js" />
+    <Content Include="view\icu_dan\js\logs.js" />
+    <Content Include="view\icu_dan\js\mongo_connect.js" />
+    <Content Include="view\icu_dan\js\mongo_schemas.js" />
+    <Content Include="view\icu_dan\js\requires.js" />
+    <Content Include="view\icu_dan\js\sms.js" />
+    <Content Include="view\icu_dan\js\testing.js" />
+    <Content Include="view\icu_dan\js\validator.js" />
+    <Content Include="view\icu_dan\public\css\bootstrap.css" />
+    <Content Include="view\icu_dan\public\css\bootstrap.min.css" />
+    <Content Include="view\icu_dan\public\css\bootstrap-switch.css" />
+    <Content Include="view\icu_dan\public\css\bootstrap-switch.min.css" />
+    <Content Include="view\icu_dan\public\css\bootstrap-theme.css" />
+    <Content Include="view\icu_dan\public\css\bootstrap-theme.min.css" />
+    <Content Include="view\icu_dan\public\css\datepicker.css" />
+    <Content Include="view\icu_dan\public\css\demo-styles.css" />
+    <Content Include="view\icu_dan\public\css\font-awesome.css" />
+    <Content Include="view\icu_dan\public\css\forms.css" />
+    <Content Include="view\icu_dan\public\css\forms-min.css" />
+    <Content Include="view\icu_dan\public\css\ios-checkbox.css" />
+    <Content Include="view\icu_dan\public\css\none-bootstrap.css" />
+    <Content Include="view\icu_dan\public\css\pre-preop-boot.css" />
+    <Content Include="view\icu_dan\public\css\simple-sidebar.css" />
+    <Content Include="view\icu_dan\public\css\toastr.css" />
+    <Content Include="view\icu_dan\public\fonts\20.eot" />
+    <Content Include="view\icu_dan\public\fonts\20.svg" />
+    <Content Include="view\icu_dan\public\fonts\20.ttf" />
+    <Content Include="view\icu_dan\public\fonts\20.woff" />
+    <Content Include="view\icu_dan\public\fonts\26.eot" />
+    <Content Include="view\icu_dan\public\fonts\26.svg" />
+    <Content Include="view\icu_dan\public\fonts\26.ttf" />
+    <Content Include="view\icu_dan\public\fonts\26.woff" />
+    <Content Include="view\icu_dan\public\fonts\28.eot" />
+    <Content Include="view\icu_dan\public\fonts\28.svg" />
+    <Content Include="view\icu_dan\public\fonts\28.ttf" />
+    <Content Include="view\icu_dan\public\fonts\28.woff" />
+    <Content Include="view\icu_dan\public\fonts\40.eot" />
+    <Content Include="view\icu_dan\public\fonts\40.svg" />
+    <Content Include="view\icu_dan\public\fonts\40.ttf" />
+    <Content Include="view\icu_dan\public\fonts\40.woff" />
+    <Content Include="view\icu_dan\public\fonts\arialbd.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibri_bold.eot" />
+    <Content Include="view\icu_dan\public\fonts\calibri_bold.svg" />
+    <Content Include="view\icu_dan\public\fonts\calibri_bold.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibri_bold.woff" />
+    <Content Include="view\icu_dan\public\fonts\calibrib.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibrii.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibril.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibrili.ttf" />
+    <Content Include="view\icu_dan\public\fonts\calibriz.ttf" />
+    <Content Include="view\icu_dan\public\fonts\COOPBL.TTF" />
+    <Content Include="view\icu_dan\public\fonts\estre.ttf" />
+    <Content Include="view\icu_dan\public\fonts\Far_Mitra.ttf" />
+    <Content Include="view\icu_dan\public\fonts\Far_Nazanin.ttf" />
+    <Content Include="view\icu_dan\public\fonts\FontAwesome.otf" />
+    <Content Include="view\icu_dan\public\fonts\fontawesome-webfont.eot" />
+    <Content Include="view\icu_dan\public\fonts\fontawesome-webfont.svg" />
+    <Content Include="view\icu_dan\public\fonts\fontawesome-webfont.ttf" />
+    <Content Include="view\icu_dan\public\fonts\fontawesome-webfont.woff" />
+    <Content Include="view\icu_dan\public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="view\icu_dan\public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="view\icu_dan\public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="view\icu_dan\public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="view\icu_dan\public\fonts\header.svg" />
+    <Content Include="view\icu_dan\public\fonts\icomoon.dev.svg" />
+    <Content Include="view\icu_dan\public\fonts\icomoon.eot" />
+    <Content Include="view\icu_dan\public\fonts\icomoon.svg" />
+    <Content Include="view\icu_dan\public\fonts\icomoon.ttf" />
+    <Content Include="view\icu_dan\public\fonts\icomoon.woff" />
+    <Content Include="view\icu_dan\public\fonts\impact.ttf" />
+    <Content Include="view\icu_dan\public\images\1.png" />
+    <Content Include="view\icu_dan\public\images\blue.jpg" />
+    <Content Include="view\icu_dan\public\images\chrome.png" />
+    <Content Include="view\icu_dan\public\images\close.gif" />
+    <Content Include="view\icu_dan\public\images\error.png" />
+    <Content Include="view\icu_dan\public\images\green.jpg" />
+    <Content Include="view\icu_dan\public\images\header.png" />
+    <Content Include="view\icu_dan\public\images\heart-beat.png" />
+    <Content Include="view\icu_dan\public\images\icu-monitor-schematic-diagram-normal-sinus-rhythm-human-heart-as-seen-ecg-blue-highlights-bright-background-35478288 %281%29.jpg" />
+    <Content Include="view\icu_dan\public\images\notice.png" />
+    <Content Include="view\icu_dan\public\images\success.png" />
+    <Content Include="view\icu_dan\public\images\summer.jpg" />
+    <Content Include="view\icu_dan\public\images\view-source themes.suggelab.com sprflat index.html" />
+    <Content Include="view\icu_dan\public\images\warning.png" />
+    <Content Include="view\icu_dan\public\js\anesthesia.js" />
+    <Content Include="view\icu_dan\public\js\anesthesia-min.js" />
+    <Content Include="view\icu_dan\public\js\angular.min.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap.min.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap-datepicker.fa.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap-datepicker.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap-switch.js" />
+    <Content Include="view\icu_dan\public\js\bootstrap-switch.min.js" />
+    <Content Include="view\icu_dan\public\js\chart.js" />
+    <Content Include="view\icu_dan\public\js\chart-min.js" />
+    <Content Include="view\icu_dan\public\js\datepicker.js" />
+    <Content Include="view\icu_dan\public\js\form-pre-op.js" />
+    <Content Include="view\icu_dan\public\js\form-pre-pre-op.js" />
+    <Content Include="view\icu_dan\public\js\his.js" />
+    <Content Include="view\icu_dan\public\js\jquery-1.10.2.js" />
+    <Content Include="view\icu_dan\public\js\time.js" />
+    <Content Include="view\icu_dan\public\js\timeline.js" />
+    <Content Include="view\icu_dan\public\js\timeline-min.js" />
+    <Content Include="view\icu_dan\public\js\time-min.js" />
+    <Content Include="view\icu_dan\public\js\toastr.js" />
+    <Content Include="view\css\doctor_register_login.css" />
+    <Content Include="view\javascript\doctor_register_login.js" />
+    <Content Include="site\panel\doctor_panel.aspx" />
+    <Content Include="site\logins\doctor_login\doctor_login.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="view\images\avatar.png" />
+    <Content Include="view\images\doctor-drawing.png" />
+    <Content Include="view\images\patient.png" />
+    <Content Include="site\forms\patient\patient_form.aspx" />
+    <Content Include="view\css\costom.css" />
+    <Content Include="classes\mail\test.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\database\database_npgsql.cs" />
+    <Compile Include="site\panel\doctor_panel.aspx.cs">
+      <DependentUpon>..\..\panel\doctor_panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\panel\doctor_panel.aspx.designer.cs">
+      <DependentUpon>..\..\panel\doctor_panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\logins\doctor_login\doctor_login.aspx.cs">
+      <DependentUpon>doctor_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\logins\doctor_login\doctor_login.aspx.designer.cs">
+      <DependentUpon>doctor_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\patient_form.aspx.cs">
+      <DependentUpon>patient_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\patient_form.aspx.designer.cs">
+      <DependentUpon>patient_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\clinik_api\clinik_api.cs" />
+    <Compile Include="classes\mail\mail.cs" />
+    <Compile Include="classes\mail\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\mail\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="view\bootstrap\css\bootstrap-theme.css.map" />
+    <None Include="view\bootstrap\css\bootstrap.css.map" />
+    <None Include="view\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="view\icons\favicon.ico" />
+    <None Include="view\icu_dan\public\css\bootstrap.css.map" />
+    <None Include="view\icu_dan\public\css\bootstrap-theme.css.map" />
+    <None Include="view\icu_dan\public\css\simple-sidebarR.css~" />
+    <None Include="view\icu_dan\public\images\.directory" />
+    <None Include="view\icu_dan\views\form1%28patient%29.ejs" />
+    <None Include="view\icu_dan\views\form2%28doc%29.ejs" />
+    <None Include="view\icu_dan\views\form3%28sabte heyn amal%29.ejs" />
+    <None Include="view\icu_dan\views\form4%28doc%29.ejs" />
+    <None Include="view\icu_dan\views\form5.ejs" />
+    <None Include="view\icu_dan\views\index.ejs" />
+    <None Include="view\icu_dan\views\result.ejs" />
+    <None Include="view\icu_dan\views\sample.ejs" />
+    <None Include="view\icu_dan\views\startup.ejs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="view\images\" />
+    <Folder Include="classes\" />
+    <Folder Include="site\" />
+    <Folder Include="site\logins\" />
+    <Folder Include="site\forms\" />
+    <Folder Include="site\forms\patient\" />
+    <Folder Include="view\icu_dan\views\" />
+    <Folder Include="classes\clinik_api\" />
+    <Folder Include="classes\mail\" />
+  </ItemGroup>
+</Project>

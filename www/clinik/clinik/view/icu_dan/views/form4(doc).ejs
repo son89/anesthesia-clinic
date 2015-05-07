@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <title>Anesthesia Record</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Danial Vafadar">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.2/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
+    <link href="../css/forms-min.css" rel="stylesheet">
+</head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization',
+       'version':'1','packages':['timeline']}]}"></script>
+<script type="text/javascript" src="../js/timeline-min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="../js/chart-min.js"></script>
+<body>
+<div class="col-md-12">
+<!--Windows Popup is the most important part -->
+  <form  method="post" action="">
+  <!------------------------------------------------------------------------->
+  <div class="modal fade" id="submit_button" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 id="surgery_end" style="font-family:font-style-4; text-align: center;">
+                        پایان جراحی
+                  </h4>
+              </div>
+              <div class="modal-body">
+                  <div class="well" style="font-family:font-style-4">
+                      با آرزوی عملی موفق برای ارسال فرم ثبت فرم را کلیک کنید
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                  <button id="submit" type="submit" class="btn btn-primary" data-dismiss="modal">ثبت فرم</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!------------------------------------------------------------->
+    <div class="modal fade" id="blood-pressure" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="blood-pressure-header" style="font-family:font-style-4; text-align: center;">
+
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="blood-pressure-start-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">سیستولیک</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input id="blood-pressure-start" type="number" class="form-control">
+                            <span id="blood-pressure-start-error" class="help-block list-hide" style="font-family: font-style-2;">سیستولیک باید عدد باشد</span>
+                        </div>
+                    </div>
+                    <div id="blood-pressure-end-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">دیباستولیک</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input name="diystolic" id="blood-pressure-end" type="number" class="form-control">
+                            <span id="blood-pressure-end-error" class="help-block list-hide" style="font-family: font-style-2;">دیاستولیک باید عدد باشد</span>
+                        </div>
+                    </div>
+                    <div id="blood-pressure-time-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">زمان</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input id="blood-pressure-time" type="time" class="form-control">
+                            <span name="reload-end" class='glyphicon glyphicon-refresh'></span>
+                            <span id="blood-pressure-time-error" class="help-block list-hide" style="font-family: font-style-2;">زمان باید مشخص باشد</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-blood-pressure-duration" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!------------------------Heart Beat-------------------->
+    <div class="modal fade" id="heart_beat" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="operation-liquids-header">
+                <h4 id="heart_beat-header" style="font-family:font-style-4; text-align: center;">
+                    ضربان قلب
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div id="heart_beat_div" class="form-group row">
+                    <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">ضربان قلب</label>
+                    <div  class="col-xs-4">
+                        <input id="heart_beat_time" type="time" class="form-control">
+                        <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                    </div>
+                    <div  class="col-xs-4">
+                        <input id="heart_beat_number" type="text" class="form-control" placeholder="ضربان قلب">
+                        <span id="heart_beat_number_valid" class="help-block list-hide">ضربان قلب یا زمان مشخص نیست ضربان قلب باید عدد باشد</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                <button id="choseـheart_beat" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------------------->
+    <div class="modal fade" id="patient-temperature" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="operation-liquids-header">
+                    <h4 id="patient-temperature-header" style="font-family:font-style-4; text-align: center;">
+                    دما
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="patient-temperature-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">درجه ی دمای مریض</label>
+                        <div  class="col-xs-4">
+                            <input id="patient-temperature-time" type="time" class="form-control">
+                            <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                            <span id="patient-temperature-valid" class="help-block list-hide">زمان باید مشخص شود</span>
+                        </div>
+                        <div  class="col-xs-4">
+                            <input id="temperature" type="text" class="form-control" placeholder="سانتی گراد">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="chose-temperature" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------Liquids-------------------------------------------------------->
+    <div class="modal fade" id="opreation-liquids" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="operation-liquids-header">
+                    <h4 id="opreation-liquids-header" style="font-family:font-style-4; text-align: center;">
+                        مایعات جین عمل
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">لیست مایعات</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <select id="liquids-list" class="form-control" style="font-family: font-style-2;">
+                                <option>First Liquid</option>
+                                <option>Second Liquid </option>
+                                <option>Third Liquid</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="liquids-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">مدت زمان استفاده شده</label>
+                        <div  class="col-xs-4">
+                            <input id="liquid-end" type="time" class="form-control">
+                        </div>
+                        <div  class="col-xs-4">
+                            <input id="liquids-start" type="time" class="form-control">
+                            <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                            <span id="liquids-valid" class="help-block list-hide">زمان شروع باید مشخص باشد</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">توضیحات دارو</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input id="liquids-describe" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="chose-liquids" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------Drugs------------------------------------------------------>
+    <div class="modal fade" id="opreation-drugs" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="operation-drugs-header">
+                    <h4 id="" style="font-family:font-style-4; text-align: center;">
+                        دارو های حین عمل
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">لیست دارو ها</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <select id="drug-list" class="form-control" style="font-family: font-style-2;">
+                                <option>First Medicine</option>
+                                <option>Second Medicine </option>
+                                <option>Third Medicine</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="drug-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">مدت زمان دارو</label>
+                        <div  class="col-xs-4">
+                            <input id="drug-end" type="time" class="form-control">
+                        </div>
+                        <div  class="col-xs-4">
+                            <input id="drug-start" type="time" class="form-control">
+                            <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                            <span id="drug-valid" class="help-block list-hide">زمان تزریق دارو باید مشخص باشد</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">توضیحات دارو</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input id="drugs-describe" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="chose-drug" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------------------Surgery Duration----------------------------------------------------------------------------->
+    <div class="modal fade" id="surgery-duration" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="surgery-duration-header" style="font-family:font-style-4; text-align: center;">
+
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="surgery-start-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">زمان شروع عمل</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input name="time_surgery_start" id="time-surgery-start" type="time" class="form-control">
+                            <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                            <span id="surgery-start-error" class="help-block list-hide" style="font-family: font-style-2;">زمان شروع عمل باید مشخص باشد</span>
+                        </div>
+                    </div>
+                    <div id="surgery-end-div" class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">زمان خاتمه ی عمل</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input name="time_surgery_end" id="time-surgery-end" type="time" class="form-control">
+                            <span name="reload-end" class='glyphicon glyphicon-refresh'></span>
+                            <span id="surgery-end-error" class="help-block list-hide" style="font-family: font-style-2;">زمان خاتمه ی عمل باید مشخص باشد</span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-4 control-label pull-right margin-top" style="font-family: font-style-3;">توضیحات عمل</label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input id="surgery-describe" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-surgery-duration" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                    <button id="delete-surgery-duration" type="button" class="pull-left btn btn-danger">حذف نمودار</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="surgeon" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="font-family:font-style-4; text-align: center;">
+                        انتخاب تیم جراحی
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <label for="first-surgeons" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">جراح اصلی</label>
+                        <div id="main-surgeon" class="col-md-4 col-md-offset-6">
+                            <select name="main_surgeon" id = "first-surgeons" class="form-control" style="font-family: font-style-2; margin-top: -5px">
+                                <option>جراح 1 </option>
+                                <option>جراح  2</option>
+                                <option>جراح 3</option>
+                            </select>
+                        </div>
+                        <label for="second-surgeons" class="col-md-2 control-label pull-right" style="font-family: font-style-3; margin-top: 30px">کمک جراح اول</label>
+                        <div class="col-md-4 col-md-offset-6">
+                            <select name="second_surgeon" id = "second-surgeons" class="form-control" style="font-family: font-style-2; margin-top: 20px">
+                                <option>جراح  1</option>
+                                <option>جراح  2</option>
+                                <option>جراح 3</option>
+                            </select>
+                        </div>
+                        <label for="third-surgeons" class="col-md-2 control-label pull-right" style="font-family: font-style-3; margin-top: 35px">کمک جراح دوم</label>
+                        <div class="col-md-4 col-md-offset-6">
+                            <select name="third_surgeon" id = "third-surgeons" class="form-control" style="font-family: font-style-2; margin-top: 20px">
+                                <option>جراح  1</option>
+                                <option>جراح  2</option>
+                                <option>جراح 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-main-surgeon" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------------------------------------------------------------------------------->
+    <div class="modal fade" id="anesthesia-surgeon" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="font-family:font-style-4; text-align: center;">
+                        انتخاب تیم جراحی
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <label for="main-anesthesia-surgeon" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">جراح بیهوشی</label>
+                        <div  class="col-md-4 col-md-offset-6">
+                            <select name="anesthesia_surgeon" id = "main-anesthesia-surgeon" class="form-control" style="font-family: font-style-2; margin-top: -5px">
+                                <option>جراح 1 </option>
+                                <option>جراح  2</option>
+                                <option>جراح 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-main-anesthesia-surgeon" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------>
+    <div class="modal fade" id="procedure" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 style="font-family:font-style-4; text-align: center;">
+                        انتخاب عمل جراحی
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="main-anesthesia-surgeon" class="col-2 control-label pull-right" style="font-family: font-style-3;">عمل جراحی</label>
+                        <div class="col-md-2">
+                            <button id="chose-surgery" type="button" class="btn btn-info">انتخاب</button>
+                        </div>
+                        <div  class="col-md-4 col-md-offset-4">
+                            <select id = "Procedure-kind" class="form-control" style="font-family: font-style-2; margin-top: -5px">
+                                <option>عمل 1</option>
+                                <option>عمل 2</option>
+                                <option>عمل 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <input name="surgery_list" id = "surgerys-list" type="text" class="form-control" style="font-family: font-style-2;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-Procedure" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------------>
+    <div class="modal fade" id="anesthesia-time" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="start-end" style="font-family:font-style-4; text-align: center;">
+
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label id="anesthesia-start-time-lable" class="col-xs-4 control-label pull-right" style="font-family: font-style-3;"></label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input name="anesthesia_start_time" type="time" class="form-control" id="anesthesia-start-time-input">
+                            <span name="reload-start" class='glyphicon glyphicon-refresh'></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label id="anesthesia-end-time-lable" class="col-xs-4 control-label pull-right" style="font-family: font-style-3;"></label>
+                        <div  class="col-xs-5 col-xs-offset-3">
+                            <input name="anesthesia_end_time" type="time" class="form-control" id="anesthesia-end-time-input">
+                            <span name="reload-end" class='glyphicon glyphicon-refresh'></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-anesthesia-time" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------------------------Pre Anesthesia State------------------------------------------------>
+    <div class="modal fade" id="pre-anesthesia-state" tabindex="-1" role="dialog fade" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div id="modal-lg" class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="pre-anesthesia-state-header" style="font-family:en-style-2; text-align: center;">
+                        Pre Anesthesia State
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="awake" class="col-xs-2 control-label" style="margin-top: 10px">Awake</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="awake" type="checkbox" class="form-control" id="awake" />
+                        </div>
+                        <label for="calm" class="col-xs-2 control-label" style="margin-top: 10px">Calm</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="calm" type="checkbox" class="form-control" id="calm" />
+                        </div>
+                        <label for="asleep" class="col-xs-2 control-label" style="margin-top: 10px">Asleep</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="asleep" type="checkbox" class="form-control" id="asleep" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="confused" class="col-xs-2 control-label" style="margin-top: 10px">Confused</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="confused" type="checkbox" class="form-control" id="confused" />
+                        </div>
+                        <label for="apprehensive" class="col-xs-2 control-label" style="margin-top: 10px">Apprehensive</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="apprehensive" type="checkbox" class="form-control" id="apprehensive" />
+                        </div>
+                        <label for="uncooperative" class="col-xs-2 control-label" style="margin-top: 10px">Uncooperative</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="uncooperative" type="checkbox" class="form-control" id="uncooperative" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="unresponsive" class="col-xs-2 control-label" style="margin-top: 10px">Unresponsive</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="Unresponsive" type="checkbox" class="form-control" id="unresponsive" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-pre-anesthesia-state" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------------------------------------->
+    <div class="modal fade" id="name-last-name" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="file-num-header" style="font-family:font-style-4; text-align: center;">
+                       نام و نام خانوادگی
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <label for="name-text" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">نام و نام خانوادگی </label>
+                        <div  class="col-md-4 col-md-offset-6">
+                            <input type="text" class="form-control" id="name-text"/>
+                            <span class="help-block" style="font-family: font-style-3;">اگر نام و نام خانوادگی مریض در سیستم ثبت نشده است آن را وارد کنید</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-name" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------Pre Procedure---------------------------------------------------------------------------->
+    <div class="modal fade" id="pre-procedure" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="pre-procedure-header" style="font-family: en-style-2; text-align: center;">
+                        Pre Procedure
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="identfide" class="col-sm-3 control-label" style="margin-top: 5px;">Identfide</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="identfide" type="checkbox" class="form-control" id="identfide" />
+                        </div>
+                        <label for="id-boand" class="col-sm-3 control-label" style="margin-top: 5px;">ID boand</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="id_boand" type="checkbox" class="form-control" id="id-boand" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="questioning" class="col-sm-3 control-label" style="margin-top: 5px;">Questioning</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input type="checkbox" class="form-control" id="questioning" />
+                        </div>
+                        <label for="chart-reviewed" class="col-sm-3 control-label" style="margin-top: 5px;">Chart Reviewed </label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="chart_reviewed" type="checkbox" class="form-control" id="chart-reviewed" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="permit-singed" class="col-sm-3 control-label" style="margin-top: 5px;">Permit Singed</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="permit_singed" type="checkbox" class="form-control" id="permit-singed" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="npo-since" class="col-sm-3 control-label" style="margin-top: 5px;">NPO Since</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="npo_since" type="checkbox" class="form-control" id="npo-since" />
+                        </div>
+                        <div class="col-xs-5">
+                            <input name="npo_since_discribe" type="text" class="form-control" id="npo-since-discribe"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-pre-procedure" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------------------------Patient Safety----------------------------->
+    <div class="modal fade" id="patient-safety" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="patient-safety-header" style="font-family:en-style-2; text-align: center;">
+                        Patient Safety
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="anes-machine" class="col-xs-2" style="margin-top: 10px;">Anes Machine</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="anes_machine" type="checkbox" class="form-control" id="anes-machine" />
+                        </div>
+                        <label for="safety-belt-on" class="col-xs-2 control-label" style="margin-top: 10px;">Safety belt on</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="safety_belt_on" type="checkbox" class="form-control" id="safety-belt-on" />
+                        </div>
+                        <label for="axeillary-roll" class="col-xs-2 control-label" style="margin-top: 10px;">Axeillary Roll</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="axeillary_roll" type="checkbox" class="form-control" id="axeillary-roll" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="amboard-restraints" class="col-xs-2 control-label" style="margin-top: 10px;">Amboard Restraints</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input type="checkbox" class="form-control" id="amboard-restraints" />
+                        </div>
+                        <label for="arms-tucked" class="col-xs-2 control-label" style="margin-top: 10px;">Arms Tucked</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="arms-tucked" type="checkbox" class="form-control" id="arms-tucked"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pressure-point-checked-andpadded" class="col-xs-2 control-label" style="margin-top: 10px;">Pressure point checked and padded</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="pressure_point_checked_andpadded" type="checkbox" class="form-control" id="pressure-point-checked-andpadded"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-patient-safety" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------Eye Care---------------------------------------------------->
+    <div class="modal fade" id="easy-care" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="easy-care-header" style="font-family:en-style-2; text-align: center;">
+                        Eye Care
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="taped" class="col-xs-2 control-label">Taped</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="taped" type="checkbox" class="form-control" id="taped"/>
+                        </div>
+                        <label for="ointment" class="col-xs-2 control-label">Ointment</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="ointment" type="checkbox" class="form-control" id="ointment"/>
+                        </div>
+                        <label for="Saline" class="col-xs-2 control-label margin-top">Saline</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="saline" type="checkbox" class="form-control" id="saline"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pads" class="col-xs-2 control-label">Pads</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="pads" type="checkbox" class="form-control" id="pads"/>
+                        </div>
+                        <label for="goggles" class="col-xs-2 control-label">Goggles</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="goggles" type="checkbox" class="form-control" id="goggles"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-easy-care" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----------------------------------------------------------Monitors And Equipment------------------------>
+    <div class="modal fade" id="monitors-equipment" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="monitors-equipment-header" style="font-family:en-style-2; text-align: center;">
+                        Monitors And Equipment
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="steth" class="col-xs-2 control-label margin-top margin-top">Steth</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="steth" type="checkbox" class="form-control" id="steth"/>
+                        </div>
+                        <label for="precord" class="col-xs-2 control-label margin-top margin-top">Precord</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="precord" type="checkbox" class="form-control" id="precord"/>
+                        </div>
+                        <label for="esoph" class="col-xs-2 control-label margin-top">Esoph</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="esoph" type="checkbox" class="form-control" id="esoph"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="other" class="col-xs-2 control-label margin-top">Other</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="other" type="checkbox" class="form-control" id="other"/>
+                        </div>
+                        <label for="non-invasive-B/P" class="col-xs-2 control-label margin-top">Non-Invasive B/P</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="non_invasive_BP" type="checkbox" class="form-control" id="non-invasive-B/P"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="left" class="col-xs-2 control-label margin-top">Left </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="left" type="checkbox" class="form-control" id="left"/>
+                        </div>
+                        <label for="right" class="col-xs-2 control-label margin-top">Right</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="right" type="checkbox" class="form-control" id="right"/>
+                        </div>
+                        <label for="continues-EKG" class="col-xs-2 control-label margin-top">Continues EKG</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="continues_EKG" type="checkbox" class="form-control" id="continues-EKG"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="v-lead-EKG" class="col-xs-2 control-label margin-top">V lead EKG</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="v_lead_EKG" type="checkbox" class="form-control" id="v-lead-EKG"/>
+                        </div>
+                        <label for="pulse-oximeter" class="col-xs-2 control-label margin-top">Pulse Oximeter</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="pulse_oximeter" type="checkbox" class="form-control" id="pulse-oximeter"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="end-tidal-CO2" class="col-xs-2 control-label margin-top">End tidal CO2</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="end_tidal_CO2" type="checkbox" class="form-control" id="end-tidal-CO2"/>
+                        </div>
+                        <label for="gas-analyzer" class="col-xs-2 control-label margin-top">Gas Analyzer </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="gas-analyzer" type="checkbox" class="form-control" id="gas-analyzer"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="temp" class="col-xs-2 control-label margin-top">Temp</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="temp" type="checkbox" class="form-control" id="temp"/>
+                        </div>
+                        <div id="gas-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="gas-dis" type="text" class="form-control" id="gas-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="warming-blanket" class="col-xs-2 control-label margin-top">Warming blanket</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="warming_blanket" type="checkbox" class="form-control" id="warming-blanket"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nerve-simulator" class="col-xs-2 control-label margin-top">Nerve simulator</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="nerve_simulator" type="checkbox" class="form-control" id="nerve-simulator"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="doppler" class="col-xs-2 control-label margin-top">Doppler</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="doppler" type="checkbox" class="form-control" id="doppler"/>
+                        </div>
+                        <label for="airway-humidifier" class="col-xs-2 control-label margin-top">Airway Humidifier</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="airway_humidifier" type="checkbox" class="form-control" id="airway-humidifier"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="fluid-warmer" class="col-xs-2 control-label margin-top">Fluid warmer</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="fluid_warmer" type="checkbox" class="form-control" id="fluid-warmer"/>
+                        </div>
+                        <label for="NG/OG-Tube" class="col-xs-2 control-label margin-top">NG/OG Tube</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="NG_OG_tube" type="checkbox" class="form-control" id="NG/OG-Tube"/>
+                        </div>
+                        <label for="Foley-Catheter" class="col-xs-2 control-label margin-top">Foley Catheter</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="foley_catheter" type="checkbox" class="form-control" id="Foley-Catheter"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Art-Line" class="col-xs-2 control-label margin-top">Art.Line</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input type="checkbox" class="form-control" id="Art-Line"/>
+                        </div>
+                        <div id="Art-Line-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input type="text" class="form-control" id="Art-Line-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="CVP" class="col-xs-2 control-label margin-top">CVP</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="CVP" type="checkbox" class="form-control" id="CVP"/>
+                        </div>
+                        <div id="CVP-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="CVP_dis" type="text" class="form-control" id="CVP-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PA-Line" class="col-xs-2 control-label margin-top">PA Line</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="PA_line" type="checkbox" class="form-control" id="PA-Line"/>
+                        </div>
+                        <div id="PA-Line-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="PA_line_dis" type="text" class="form-control" id="PA-Line-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="IV-s" class="col-xs-2 control-label margin-top">IV(s)</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="IV_s" type="checkbox" class="form-control" id="IV-s"/>
+                        </div>
+                        <div id="IV-s-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="IV_s_dis" type="text" class="form-control" id="IV-s-dis"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-monitors-equipment" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------Anesthesia Technique------------------------------------>
+    <div class="modal fade" id="anesthesia-technique" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="anesthesia-technique-header" style="font-family:en-style-2; text-align: center;">
+                        Anesthesia Technique
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="General" class="col-xs-2 control-label margin-top margin-top">General</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="General" type="checkbox" class="form-control" id="General"/>
+                        </div>
+                    </div>
+                    <div id="hide-option-1" class="form-group row list-hide">
+                        <label for="Pre-Oxygenation" class="col-xs-2 control-label margin-top margin-top">Pre-Oxygenation</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="pre_oxygenation" type="checkbox" class="form-control" id="Pre-Oxygenation"/>
+                        </div>
+                        <label for="Rapid-sequence" class="col-xs-2 control-label margin-top margin-top">Rapid sequence</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="rapid_sequence" type="checkbox" class="form-control" id="Rapid-sequence"/>
+                        </div>
+                        <label for="Intravenous" class="col-xs-2 control-label margin-top margin-top">Intravenous</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="intravenous" type="checkbox" class="form-control" id="Intravenous"/>
+                        </div>
+                    </div>
+                    <div id="hide-option-3" class="form-group row list-hide">
+                        <label for="Inhalation" class="col-xs-2 control-label margin-top margin-top">Inhalation</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="inhalation" type="checkbox" class="form-control" id="Inhalation"/>
+                        </div>
+                        <label for="Cricoid-Pressure" class="col-xs-2 control-label margin-top margin-top">Cricoid Pressure</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="cricoid_pressure" type="checkbox" class="form-control" id="Cricoid-Pressure"/>
+                        </div>
+                        <label for="LTA" class="col-xs-2 control-label margin-top margin-top">LTA</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="LTA" type="checkbox" class="form-control" id="LTA"/>
+                        </div>
+                    </div>
+                    <div id="hide-option-4" class="form-group row list-hide">
+                        <label for="Intramuscular" class="col-xs-2 control-label margin-top margin-top">Intramuscular</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="intramuscular" type="checkbox" class="form-control" id="Intramuscular"/>
+                        </div>
+                        <label for="Rectal" class="col-xs-2 control-label margin-top margin-top">Rectal</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="rectal" type="checkbox" class="form-control" id="Rectal"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Regional" class="col-xs-2 control-label margin-top margin-top">Regional</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="regional" type="checkbox" class="form-control" id="Regional"/>
+                        </div>
+                    </div>
+                    <div id="hide-option-2-1" class="form-group row list-hide">
+                        <label for="spinal" class="col-xs-2 control-label margin-top margin-top">spinal</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="spinal" type="checkbox" class="form-control" id="spinal"/>
+                        </div>
+                        <label for="Epidural" class="col-xs-2 control-label margin-top margin-top">Epidural</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="epidural" type="checkbox" class="form-control" id="Epidural"/>
+                        </div>
+                        <label for="Axillary" class="col-xs-2 control-label margin-top margin-top">Axillary</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="axillary" type="checkbox" class="form-control" id="Axillary"/>
+                        </div>
+                    </div>
+                    <div id="hide-option-2-2" class="form-group row list-hide">
+                            <label for="Bier-Block" class="col-xs-2 control-label margin-top margin-top">Bier Block</label>
+                            <div class="col-xs-2 checkbox-direction">
+                                <input name="bier_block" type="checkbox" class="form-control" id="Bier-Block"/>
+                            </div>
+                            <label for="Ankle-Block" class="col-xs-2 control-label margin-top margin-top">Ankle Block</label>
+                            <div class="col-xs-2 checkbox-direction">
+                                <input name="ankle-block" type="checkbox" class="form-control" id="Ankle-Block"/>
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Position" class="col-xs-2 control-label margin-top margin-top">Position</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="position" type="checkbox" class="form-control" id="Position"/>
+                        </div>
+                        <div id="Position-dis-div" class="col-xs-2 list-hide">
+                            <input name="position-dis" type="text" class="form-control" id="Position-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Prep" class="col-xs-2 control-label margin-top margin-top">Prep</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="prep" type="checkbox" class="form-control" id="Prep"/>
+                        </div>
+                        <div id="Prep-dis-div" class="col-xs-2 list-hide">
+                            <input name="prep-dis" type="text" class="form-control" id="Prep-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Local" class="col-xs-2 control-label margin-top margin-top">Local</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="local" type="checkbox" class="form-control" id="Local"/>
+                        </div>
+                        <div id="Local-dis-div" class="col-xs-2 list-hide">
+                            <input name="local_dis" type="text" class="form-control" id="Local-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Needle" class="col-xs-2 control-label margin-top margin-top">Needle</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="needle" type="checkbox" class="form-control" id="Needle"/>
+                        </div>
+                        <div id="Needle-dis-div" class="col-xs-2 list-hide">
+                            <input name="needle_dis" type="text" class="form-control" id="Needle-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Drugs" class="col-xs-2 control-label margin-top margin-top">Drugs</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="drugs" type="checkbox" class="form-control" id="Drugs"/>
+                        </div>
+                        <div id="Drugs-dis-div" class="col-xs-2 list-hide">
+                            <input name="drugs_dis" type="text" class="form-control" id="Drugs-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Dose" class="col-xs-2 control-label margin-top margin-top">Dose</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="dose" type="checkbox" class="form-control" id="Dose"/>
+                        </div>
+                        <div id="Dose-dis-div" class="col-xs-2 list-hide">
+                            <input name="dose_dis" type="text" class="form-control" id="Dose-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Site" class="col-xs-2 control-label margin-top margin-top">Site</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="site" type="checkbox" class="form-control" id="Site"/>
+                        </div>
+                        <div id="Site-dis-div" class="col-xs-2 list-hide">
+                            <input name="site_dis" type="text" class="form-control" id="Site-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Attempts" class="col-xs-2 control-label margin-top margin-top">Attempts-x</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="attempts" type="checkbox" class="form-control" id="Attempts"/>
+                        </div>
+                        <div id="Attempts-dis-div" class="col-xs-2 list-hide">
+                            <input name="attempts_dis" type="text" class="form-control" id="Attempts-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Level" class="col-xs-2 control-label margin-top margin-top">Level</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="level" type="checkbox" class="form-control" id="Level"/>
+                        </div>
+                        <div id="Level-dis-div" class="col-xs-2 list-hide">
+                            <input name="level_dis" type="text" class="form-control" id="Level-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Catheter" class="col-xs-2 control-label margin-top margin-top">Catheter</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="catheter" type="checkbox" class="form-control" id="Catheter"/>
+                        </div>
+                        <div id="Catheter-dis-div" class="col-xs-2 list-hide">
+                            <input name="catheter_dis" type="text" class="form-control" id="Catheter-dis"/>
+                        </div>
+                        <label for="See-Mark" class="col-xs-2 control-label margin-top margin-top">See Mark </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="see_mark" type="checkbox" class="form-control" id="See-Mark"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Mack" class="col-xs-2 control-label margin-top margin-top">Mack </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="mack" type="checkbox" class="form-control" id="Mack"/>
+                        </div>
+                        <div id="Mack-dis-div" class="col-xs-2 list-hide">
+                            <input type="text" class="form-control" id="Mack-dis"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-anesthesia-technique" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------Airway Management------------------------------------>
+    <div class="modal fade" id="airway-management" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="airway-management-header" style="font-family:en-style-2; text-align: center;">
+                        Airway Management
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="Oral" class="col-xs-2 control-label margin-top">Oral</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="oral" type="checkbox" class="form-control" id="Oral"/>
+                        </div>
+                        <label for="Tube-size" class="col-xs-2 control-label margin-top">Tube size</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="tube_size" type="checkbox" class="form-control" id="Tube-size"/>
+                        </div>
+                        <label for="Style-used" class="col-xs-2 control-label margin-top">Style used</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="style_used" type="checkbox" class="form-control" id="Style-used"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Nasal" class="col-xs-2 control-label margin-top">Nasal</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="nasal" type="checkbox" class="form-control" id="Nasal"/>
+                        </div>
+                        <label for="Regular" class="col-xs-2 control-label margin-top">Regular</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="regular" type="checkbox" class="form-control" id="Regular"/>
+                        </div>
+                        <label for="Magill-s" class="col-xs-2 control-label margin-top">Magill's</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="magill_s" type="checkbox" class="form-control" id="Magill-s"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Direct" class="col-xs-2 control-label margin-top">Direct</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="direct" type="checkbox" class="form-control" id="Direct"/>
+                        </div>
+                        <label for="RAE" class="col-xs-2 control-label margin-top">RAE</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="RAE" type="checkbox" class="form-control" id="RAE"/>
+                        </div>
+                        <label for="Fiber-Optic" class="col-xs-2 control-label margin-top">Fiber Optic </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="fiber_optic" type="checkbox" class="form-control" id="Fiber-Optic"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Blind" class="col-xs-2 control-label margin-top">Blind</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="blind" type="checkbox" class="form-control" id="Blind"/>
+                        </div>
+                        <label for="Armored" class="col-xs-2 control-label margin-top">Armored</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="armored" type="checkbox" class="form-control" id="Armored"/>
+                        </div>
+                        <label for="Laser" class="col-xs-2 control-label margin-top">Laser</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="laser" type="checkbox" class="form-control" id="Laser"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Blade" class="col-xs-2 control-label margin-top">Blade</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="blade" type="checkbox" class="form-control" id="Blade"/>
+                        </div>
+                        <div id="Blade-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="blade_dis" type="text" class="form-control" id="Blade-dis"/>
+                        </div>
+                        <label for="Endobronch" class="col-xs-2 control-label margin-top">Endobronch</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="endobronch" type="checkbox" class="form-control" id="Endobronch"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ET-CO2-Present" class="col-xs-2 control-label margin-top">ET CO2 Present </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="et_co2_present" type="checkbox" class="form-control" id="ET-CO2-Present"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Breath-sound" class="col-xs-2 control-label margin-top">Breath sound</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="breath_sound" type="checkbox" class="form-control" id="Breath-sound"/>
+                        </div>
+                        <div id="Breath-sound-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input name="breath_sound_dis" type="text" class="form-control" id="Breath-sound-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Uncuffed-Leaks-at" class="col-xs-2 control-label margin-top">Uncuffed, Leaks at</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="uncuffed_leaks-at" type="checkbox" class="form-control" id="Uncuffed-Leaks-at"/>
+                        </div>
+                        <div id="Uncuffed-Leaks-at-dis-div" class="col-xs-2 checkbox-direction list-hide">
+                            <input type="text" class="form-control" id="Uncuffed-Leaks-at-sound-dis"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Cuffed" class="col-xs-2 control-label margin-top">Cuffed</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="cuffed" type="checkbox" class="form-control" id="Cuffed"/>
+                        </div>
+                        <label for="Min-Occ-pres" class="col-xs-2 control-label margin-top">Min.Occ.pres </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="min_occ_pres" type="checkbox" class="form-control" id="Min-Occ-pres"/>
+                        </div>
+                        <label for="Air" class="col-xs-2 control-label margin-top">Air</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="air" type="checkbox" class="form-control" id="Air"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="NS" class="col-xs-2 control-label margin-top">NS</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="NS" type="checkbox" class="form-control" id="NS"/>
+                        </div>
+                        <label for="Airway" class="col-xs-2 control-label margin-top">Airway</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="airway" type="checkbox" class="form-control" id="Airway"/>
+                        </div>
+                        <label for="Oral-2" class="col-xs-2 control-label margin-top">Oral</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="oral_2" type="checkbox" class="form-control" id="Oral-2"/>
+                        </div>
+                    </div>
+                    <div class="form-group row row">
+                        <label for="LMA" class="col-xs-2 control-label margin-top">LMA</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="LMA" type="checkbox" class="form-control" id="LMA"/>
+                        </div>
+                        <label for="Nasal-2" class="col-xs-2 control-label margin-top">Nasal</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="nasal" type="checkbox" class="form-control" id="Nasal-2"/>
+                        </div>
+                        <label for="Via-Tracheostomy" class="col-xs-2 control-label margin-top">Via Tracheostomy</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="via_tracheostomy" type="checkbox" class="form-control" id="Via-Tracheostomy"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Circuit" class="col-xs-2 control-label margin-top">Circuit</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="circuit" type="checkbox" class="form-control" id="Circuit"/>
+                        </div>
+                        <label for="Circle" class="col-xs-2 control-label margin-top">Circle</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="circle" type="checkbox" class="form-control" id="Circle"/>
+                        </div>
+                        <label for="NRB" class="col-xs-2 control-label margin-top">NRB</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="NRB" type="checkbox" class="form-control" id="NRB"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Mask-case" class="col-xs-2 control-label margin-top">Mask case</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="mask_case" type="checkbox" class="form-control" id="Mask-case"/>
+                        </div>
+                        <label for="Nasal-Cannula" class="col-xs-2 control-label margin-top">Nasal Cannula</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="nasal_cannula" type="checkbox" class="form-control" id="Nasal-Cannula"/>
+                        </div>
+                        <label for="Simple-O2-Mask" class="col-xs-2 control-label margin-top">Simple O2 Mask </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="simple_o2_mask" type="checkbox" class="form-control" id="Simple-O2-Mask"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-airway-management" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------------------------------Recovery------------------------------->
+    <div class="modal fade" id="recovery" tabindex="-1" role="dialog fade" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 900px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="recovery-header" style="font-family:en-style-2; text-align: center;">
+                        Recovery
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="Re-Time" class="col-xs-2 control-label margin-top">Time</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="re_time" type="time" class="form-control" id="Re-Time"/>
+                        </div>
+                        <label for="O2-Sat" class="col-xs-2 control-label margin-top">O2 Sat</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="o2_sat" type="text" class="form-control" id="O2-Sat"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <!---WTF if we have blood pressure chart why there is blood pressure field-->
+                        <label for="first-num" class="col-xs-2 control-label margin-top">B/P</label>
+                        <div class="col-xs-2">
+                            <input type="number" class="form-control" id="first-num"/>
+                        </div>
+                        <div class="col-xs-1">
+                            <h4><span class="glyphicon glyphicon-transfer"></span></h4>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="number" class="form-control" id="second-num"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PACU" class="col-xs-2 control-label margin-top">PACU</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="PACU" type="checkbox" class="form-control" id="PACU"/>
+                        </div>
+                        <label for="ICU" class="col-xs-2 control-label margin-top">ICU</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="ICU" type="checkbox" class="form-control" id="ICU"/>
+                        </div>
+                        <label for="L-D" class="col-xs-2 control-label margin-top">L&D</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="LD" type="checkbox" class="form-control" id="L-D"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="Re-awake" class="col-xs-2 control-label margin-top">Awake</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="re_awake" type="checkbox" class="form-control" id="Re-awake"/>
+                        </div>
+                        <label for="stable" class="col-xs-2 control-label margin-top">Stable</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="stable" type="checkbox" class="form-control" id="stable"/>
+                        </div>
+                        <label for="unstable" class="col-xs-2 control-label margin-top">Unstable</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="unstable" type="checkbox" class="form-control" id="unstable"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="asleep" class="col-xs-2 control-label margin-top">Asleep</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="re_asleep" type="checkbox" class="form-control" id="Re-asleep"/>
+                        </div>
+                        <label for="ventilator" class="col-xs-2 control-label margin-top">Ventilator</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="ventilator" type="checkbox" class="form-control" id="ventilator"/>
+                        </div>
+                        <label for="extubated" class="col-xs-2 control-label margin-top">Extubated</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="extubated" type="checkbox" class="form-control" id="extubated"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="intubated" class="col-xs-2 control-label margin-top">Intubated</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="intubated" type="checkbox" class="form-control" id="intubated"/>
+                        </div>
+                        <label for="oral-airway" class="col-xs-2 control-label margin-top">Oral Airway </label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="oral_airway" type="checkbox" class="form-control" id="oral-airway"/>
+                        </div>
+                        <label for="nasal-airway" class="col-xs-2 control-label margin-top">Nasal Airway</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="nasal_airway" type="checkbox" class="form-control" id="nasal-airway"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="tpiece-oxygen" class="col-xs-2 control-label margin-top">T-Piece Oxygen</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="tpiece_oxygen" type="checkbox" class="form-control" id="tpiece-oxygen"/>
+                        </div>
+                        <label for="face-shield-oxygen" class="col-xs-2 control-label margin-top">Face Shield Oxygen</label>
+                        <div class="col-xs-2 checkbox-direction">
+                            <input name="face_shield_oxygen" type="checkbox" class="form-control" id="face-shield-oxygen"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                    <button id="save-recovery" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------------------------------------------------------->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button id="res-btn" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="margin-top: -10px;" data-toggle="modal" data-target="#submit_button">Anesthesia Record <i class="fa fa-medkit fa-2x"></i></a>
+            </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="col-xs-pull-7">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right" style="font-family: font-style-3">
+                        <li class="checkbox-direction" id="anesthesia-res" style="font-family: en-font-1;"><a id="anesthesia-time-show" href="#" data-toggle="modal" data-target="#anesthesia-time">Anesthesia Time</a></li>
+                        <li id="first"><a id="procedure-show" href="#" data-toggle="modal" data-target="#procedure">نوع جراحی</a></li>
+                        <li id="second"><a id="surgeon-show" href="#" data-toggle="modal" data-target="#surgeon">جراح اصلی</a></li>
+                        <li id="third"><a id="anesthesia-surgeon-show" href="#" data-toggle="modal" data-target="#anesthesia-surgeon">جراح بیهوشی</a></li>
+                        <li id="fourth"><a href="#">شماره ی پرونده</a></li>
+                        <li id="fifth"><a id="name-show" href="#" data-toggle="modal" data-target="#name-last-name">نام و نام خانوادگی</a></span></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <nav class="navbar navbar-default" role="navigation" style="margin-top: -15px">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button id="res-btn-2" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="col-xs-pull-7">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                    <ul class="nav navbar-nav">
+                        <li id="pre-procedure-list"><a id="pre-procedure-show" href="#" data-toggle="modal" data-target="#pre-procedure">Pre Procedure</a></li>
+                        <li id="pre-anesthesia-state-list"><a id="pre-anesthesia-state-show" href="#" data-toggle="modal" data-target="#pre-anesthesia-state">Pre Anesthesia State</a></li>
+                        <li id="patient-safety-list"><a id="patient-safety-show" href="#" data-toggle="modal" data-target="#patient-safety">Patient Safety</a></li>
+                        <li id="easy-care-list"><a id="easy-care-show" href="#" data-toggle="modal" data-target="#easy-care">Easy Care</a></li>
+                        <li id="monitors-equipment-list"><a id="monitors-equipment-show" href="#" data-toggle="modal" data-target="#monitors-equipment">Monitors And Equipment</a></li>
+                        <li id="anesthesia-technique-list"><a id="anesthesia-technique-show" href="#" data-toggle="modal" data-target="#anesthesia-technique">Anesthesia Technique</a></li>
+                        <li id="airway-management-list"><a id="airway-management-show" href="#" data-toggle="modal" data-target="#airway-management">Airway Management</a></li>
+                        <li id="recovery-list"><a id="recovery-show" href="#" data-toggle="modal" data-target="#recovery">Recovery</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    </form>
+    <!-------------------------------------chart Part-------------------------------->
+    <div class="row">
+        <div class="col-xs-2">
+            <table class="table table-hover" style="text-align: center">
+                <tr>
+                    <td id="draw-chart" data-toggle="modal" data-target="#surgery-duration"> Surgery Duration  </td>
+                </tr>
+                <tr>
+                    <td id="select-drugs" data-toggle="modal" data-target="#opreation-drugs"> Drugs </td>
+                </tr>
+                <tr>
+                    <td id="select-liquids" data-toggle="modal" data-target="#opreation-liquids"> Liquids </td>
+                </tr>
+                <tr>
+                    <td id="select-temperature" data-toggle="modal" data-target="#patient-temperature"> Temperature </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-xs-9">
+            <div id="timeline" class="checkbox-direction"></div>
+            <div id='duration' class="checkbox-direction"></div>
+        </div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+    <div class="row">
+        <div class="col-xs-2">
+            <table class="table table-hover" style="text-align: center">
+                <tr>
+                    <td id="blood-pressure-table" data-toggle="modal" data-target="#blood-pressure"> Blood Pressure </td>
+                </tr>
+                <tr>
+                    <td id="heart_beat_table" data-toggle="modal" data-target="#heart_beat">Heart beat</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-xs-10">
+            <div id="chart_div" style="margin-top: -60px"></div>
+        </div>
+    </div>
+</div>
+<!------------------------------------------------------------------------------->
+</body>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.2/js/bootstrap-switch.min.js"></script>
+<script src="../js/anesthesia-min.js"></script>
+<script src="../js/time-min.js"></script>
+</html>

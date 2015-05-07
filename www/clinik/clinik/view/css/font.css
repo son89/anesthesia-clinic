@@ -1,0 +1,20 @@
+﻿@font-face
+{
+    font-family: nazanin;
+    src: url(../font/B_Nazanin_Regular.ttf);
+    font-weight: bold;
+}
+@font-face
+{
+    font-family: quran_taha;
+    src: url(../font/quran_taha.ttf);
+    font-weight: bold;
+}
+.font_nazanin
+{
+    font-family: nazanin;
+}
+.font_quran_taha
+{
+    font-family: quran_taha;
+}

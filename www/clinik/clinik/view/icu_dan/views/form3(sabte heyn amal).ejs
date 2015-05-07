@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Anesthesia Record
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/ios-checkbox.css"/>
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Danial Vafadar">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../css/forms.css" rel="stylesheet">
+</head>
+<style>
+    .screen{
+        background-color:#c0c0c0;
+    }
+</style>
+<body class="body">
+<form class="form-horizontal" method="POST">
+<fieldset>
+<div class="col-md-11 inside-forms">
+<div class="header screen" style="text-align: center">
+    <h3 style="font-family: en-font-1; text-align: center;">Anesthesia Record</h3>
+</div>
+<br/>
+<legend style="font-family: en-font-2;">Personal Information</legend>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="Procedure" class="col-sm-2 control-label">Procedure</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="Procedure"  placeholder="Procedure">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="date" class="col-sm-2 control-label">Date</label>
+            <div class="col-md-5">
+                <input type="date" class="form-control" id="date"  placeholder="Date">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="OR NO" class="col-sm-2 control-label">OR NO</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="OR NO"  placeholder="OR NO">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="Surgeons" class="col-sm-2 control-label">Surgeons</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control" id="Surgeons"  placeholder="Surgeons">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Anesthesia Time</legend>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="time-anesthesia-start" class="col-sm-2 control-label">Start Time</label>
+            <div class="col-md-5">
+                <input type="time" class="form-control" id="time-anesthesia-start"  placeholder="Start time">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="time-anesthesia-end" class="col-sm-2 control-label">Stop Time</label>
+            <div class="col-md-5">
+                <input type="time" class="form-control" id="time-anesthesia-end"  placeholder="Stop time">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Procedure Time</legend>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="time-Procedure-start" class="col-sm-2 control-label">Start Time</label>
+            <div class="col-md-5">
+                <input type="time" class="form-control" id="time-Procedure-start"  placeholder="Start time">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="time-Procedure-end" class="col-sm-2 control-label">Stop Time</label>
+            <div class="col-md-5">
+                <input type="time" class="form-control" id="time-Procedure-end"  placeholder="Stop time">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Pre procedure</legend>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="identfide" class="col-sm-2 control-label">Identfide</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="identfide" />
+            </div>
+            <label for="id-boand" class="col-sm-2 control-label">ID boand</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="id-boand" />
+            </div>
+            <label for="questioning" class="col-sm-2 control-label">Questioning</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="questioning" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="chart-reviewed " class="col-sm-2 control-label">Chart Reviewed </label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="chart-reviewed " />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="permit-singed" class="col-sm-2 control-label">Permit Singed</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="permit-singed" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+    <div class="form-group">
+        <label for="npo-since" class="col-sm-2 control-label">NPO Since</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="npo-since" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="npo-since-discribe"/>
+        </div>
+    </div>
+    <br/>
+    </div>
+    <legend style="font-family: en-font-2;">Pre Anesthesia State</legend>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="awake" class="col-sm-2 control-label">Awake</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="awake" />
+            </div>
+            <label for="calm" class="col-sm-2 control-label">Calm</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="calm" />
+            </div>
+            <label for="asleep" class="col-sm-2 control-label">Asleep</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="asleep" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confused" class="col-sm-2 control-label">Confused</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="confused" />
+            </div>
+            <label for="apprehensive" class="col-sm-2 control-label">Apprehensive</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="apprehensive" />
+            </div>
+            <label for="uncooperative" class="col-sm-2 control-label">Uncooperative</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="uncooperative" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="unresponsive" class="col-sm-2 control-label">Unresponsive</label>
+            <div class="col-md-2" >
+                <input type="checkbox" class="form-control" id="unresponsive" />
+            </div>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Patient Safety</legend>
+    <div class="form-group">
+        <label for="anes-machine" class="col-sm-2 control-label">Anes Machine</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="anes-machine" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="safety-belt-on" class="col-sm-2 control-label">Safety belt on</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="safety-belt-on" />
+        </div>
+        <label for="axeillary-roll" class="col-sm-2 control-label">Axeillary Roll</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="axeillary-roll" />
+        </div>
+        <label for="amboard-restraints" class="col-sm-2 control-label">Amboard Restraints</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="amboard-restraints" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="arms-tucked" class="col-sm-2 control-label">Arms Tucked</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="arms-tucked"/>
+        </div>
+        <label for="pressure-point-checked-andpadded" class="col-sm-2 control-label">Pressure point checked and padded</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="pressure-point-checked-andpadded"/>
+        </div>
+    </div>
+    <legend style="font-family: en-font-2;">Easy Care</legend>
+    <div class="form-group">
+        <label for="taped" class="col-sm-2 control-label">Taped</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="taped"/>
+        </div>
+        <label for="ointment" class="col-sm-2 control-label">Ointment</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="ointment"/>
+        </div>
+        <label for="Saline" class="col-sm-2 control-label">Saline</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="saline"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pads" class="col-sm-2 control-label">Pads</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="pads"/>
+        </div>
+        <label for="goggles" class="col-sm-2 control-label">Goggles</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="goggles"/>
+        </div>
+    </div>
+    <legend style="font-family: en-font-2;">Monitors And Equipment</legend>
+    <div class="form-group">
+        <label for="steth" class="col-sm-2 control-label">Steth</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="steth"/>
+        </div>
+        <label for="precord" class="col-sm-2 control-label">Precord</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="precord"/>
+        </div>
+        <label for="esoph" class="col-sm-2 control-label">Esoph</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="esoph"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="other" class="col-sm-2 control-label">Other</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="other"/>
+        </div>
+        <label for="non-invasive-B/P" class="col-sm-2 control-label">Non-Invasive B/P</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="non-invasive-B/P"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="left" class="col-sm-2 control-label">Left </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="left"/>
+        </div>
+        <label for="right" class="col-sm-2 control-label">Right</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="right"/>
+        </div>
+        <label for="continues-EKG" class="col-sm-2 control-label">Continues EKG</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="continues-EKG"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="v-lead-EKG" class="col-sm-2 control-label">V lead EKG</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="v-lead-EKG"/>
+        </div>
+        <label for="pulse-oximeter" class="col-sm-2 control-label">Pulse Oximeter</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="pulse-oximeter"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="end-tidal-CO2" class="col-sm-2 control-label">End tidal CO2</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="end-tidal-CO2"/>
+        </div>
+        <label for="gas-analyzer" class="col-sm-2 control-label">Gas Analyzer </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="gas-analyzer"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="temp" class="col-sm-2 control-label">Temp</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="temp"/>
+        </div>
+        <div id="gas-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="gas-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="warming-blanket" class="col-sm-2 control-label">Warming blanket</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="warming-blanket"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nerve-simulator" class="col-sm-2 control-label">Nerve simulator</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="nerve-simulator"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="doppler" class="col-sm-2 control-label">Doppler</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="doppler"/>
+        </div>
+        <label for="airway-humidifier" class="col-sm-2 control-label">Airway Humidifier</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="airway-humidifier"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fluid-warmer" class="col-sm-2 control-label">Fluid warmer</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="fluid-warmer"/>
+        </div>
+        <label for="NG/OG-Tube" class="col-sm-2 control-label">NG/OG Tube</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="NG/OG-Tube"/>
+        </div>
+        <label for="Foley-Catheter" class="col-sm-2 control-label">Foley Catheter</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Foley-Catheter"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Art-Line" class="col-sm-2 control-label">Art.Line</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Art-Line"/>
+        </div>
+        <div id="Art-Line-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Art-Line-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="CVP" class="col-sm-2 control-label">CVP</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="CVP"/>
+        </div>
+        <div id="CVP-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="CVP-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="PA-Line" class="col-sm-2 control-label">PA Line</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="PA-Line"/>
+        </div>
+        <div id="PA-Line-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="PA-Line-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="IV-s" class="col-sm-2 control-label">IV(s)</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="IV-s"/>
+        </div>
+        <div id="IV-s-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="IV-s-dis"/>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Anesthesia Technique</legend>
+    <div class="form-group">
+        <label for="General" class="col-sm-2 control-label">General</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="General"/>
+        </div>
+    </div>
+        <div id="hide-option-1" class="form-group list-hide">
+            <div class="form-group">
+            <label for="Pre-Oxygenation" class="col-sm-2 control-label">Pre-Oxygenation</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Pre-Oxygenation"/>
+            </div>
+        </div>
+    </div>
+    <div id="hide-option" class="form-group list-hide">
+        <div class="form-group">
+            <label for="Rapid-sequence" class="col-sm-2 control-label">Rapid sequence</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Rapid-sequence"/>
+            </div>
+        </div>
+        <label for="Intravenous" class="col-sm-2 control-label">Intravenous</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Intravenous"/>
+        </div>
+    </div>
+    <div id="hide-option-3" class="form-group list-hide">
+        <label for="Inhalation" class="col-sm-2 control-label">Inhalation</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Inhalation"/>
+        </div>
+    </div>
+    <div id="hide-option-2" class="form-group list-hide">
+        <div class="form-group">
+            <label for="Cricoid-Pressure" class="col-sm-2 control-label">Cricoid Pressure</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Cricoid-Pressure"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="hide-option-4" class="form-group list-hide">
+            <label for="LTA" class="col-sm-2 control-label">LTA</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="LTA"/>
+            </div>
+            <label for="Intramuscular" class="col-sm-2 control-label">Intramuscular</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Intramuscular"/>
+            </div>
+            <label for="Rectal" class="col-sm-2 control-label">Rectal</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Rectal"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Regional" class="col-sm-2 control-label">Regional</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Regional"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div id="hide-option-2-1" class="form-group list-hide">
+            <label for="spinal" class="col-sm-2 control-label">spinal</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="spinal"/>
+            </div>
+            <label for="Epidural" class="col-sm-2 control-label">Epidural</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Epidural"/>
+            </div>
+            <label for="Axillary" class="col-sm-2 control-label">Axillary</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Axillary"/>
+            </div>
+        </div>
+        <div id="hide-option-2-2" class="form-group list-hide">
+            <label for="Bier-Block" class="col-sm-2 control-label">Bier Block</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Bier-Block"/>
+            </div>
+            <label for="Ankle-Block" class="col-sm-2 control-label">Ankle Block</label>
+            <div class="col-md-2">
+                <input type="checkbox" class="form-control" id="Ankle-Block"/>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Position" class="col-sm-2 control-label">Position</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Position"/>
+        </div>
+        <div id="Position-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Position-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Prep" class="col-sm-2 control-label">Prep</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Prep"/>
+        </div>
+        <div id="Prep-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Prep-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Local" class="col-sm-2 control-label">Local</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Local"/>
+        </div>
+        <div id="Local-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Local-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Needle" class="col-sm-2 control-label">Needle</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Needle"/>
+        </div>
+        <div id="Needle-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Needle-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Drugs" class="col-sm-2 control-label">Drugs</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Drugs"/>
+        </div>
+        <div id="Drugs-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Drugs-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Dose" class="col-sm-2 control-label">Dose</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Dose"/>
+        </div>
+        <div id="Dose-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Dose-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Site" class="col-sm-2 control-label">Site</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Site"/>
+        </div>
+        <div id="Site-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Site-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Attempts" class="col-sm-2 control-label">Attempts-x</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Attempts"/>
+        </div>
+        <div id="Attempts-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Attempts-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Level" class="col-sm-2 control-label">Level</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Level"/>
+        </div>
+        <div id="Level-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Level-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Catheter" class="col-sm-2 control-label">Catheter</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Catheter"/>
+        </div>
+        <div id="Catheter-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Catheter-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="See-Mark" class="col-sm-2 control-label">See Mark </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="See-Mark"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Mack" class="col-sm-2 control-label">Mack </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Mack"/>
+        </div>
+        <div id="Mack-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Mack-dis"/>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Airway Management</legend>
+    <div class="form-group">
+        <label for="Oral" class="col-sm-2 control-label">Oral</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Oral"/>
+        </div>
+        <label for="Tube-size" class="col-sm-2 control-label">Tube size</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Tube-size"/>
+        </div>
+        <label for="Style-used" class="col-sm-2 control-label">Style used</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Style-used"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Nasal" class="col-sm-2 control-label">Nasal</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Nasal"/>
+        </div>
+        <label for="Regular" class="col-sm-2 control-label">Regular</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Regular"/>
+        </div>
+        <label for="Magill's" class="col-sm-2 control-label">Magill's</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Magill's"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Direct" class="col-sm-2 control-label">Direct</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Direct"/>
+        </div>
+        <label for="RAE" class="col-sm-2 control-label">RAE</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="RAE"/>
+        </div>
+        <label for="Fiber-Optic" class="col-sm-2 control-label">Fiber Optic </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Fiber-Optic"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Blind" class="col-sm-2 control-label">Blind</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Blind"/>
+        </div>
+        <label for="Armored" class="col-sm-2 control-label">Armored</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Armored"/>
+        </div>
+        <label for="Laser" class="col-sm-2 control-label">Laser</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Laser"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Blade" class="col-sm-2 control-label">Blade</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Blade"/>
+        </div>
+        <div id="Blade-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Blade-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Endobronch" class="col-sm-2 control-label">Endobronch</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Endobronch"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ET-CO2-Present" class="col-sm-2 control-label">ET CO2 Present </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="ET-CO2-Present"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Breath-sound" class="col-sm-2 control-label">Breath sound</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Breath-sound"/>
+        </div>
+        <div id="Breath-sound-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Breath-sound-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Uncuffed-Leaks-at" class="col-sm-2 control-label">Uncuffed, Leaks at</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Uncuffed-Leaks-at"/>
+        </div>
+        <div id="Uncuffed-Leaks-at-dis-div" class="col-md-2 list-hide">
+            <input type="text" class="form-control" id="Uncuffed-Leaks-at-sound-dis"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Cuffed" class="col-sm-2 control-label">Cuffed</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Cuffed"/>
+        </div>
+        <label for="Min.Occ.pres" class="col-sm-2 control-label">Min.Occ.pres </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Min.Occ.pres"/>
+        </div>
+        <label for="Air" class="col-sm-2 control-label">Air</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Air"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="NS" class="col-sm-2 control-label">NS</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="NS"/>
+        </div>
+        <label for="Airway" class="col-sm-2 control-label">Airway</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Airway"/>
+        </div>
+        <label for="Oral-2" class="col-sm-2 control-label">Oral</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Oral-2"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="LMA" class="col-sm-2 control-label">LMA</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="LMA"/>
+        </div>
+        <label for="Nasal-2" class="col-sm-2 control-label">Nasal</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Nasal-2"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Circuit" class="col-sm-2 control-label">Circuit</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Circuit"/>
+        </div>
+        <label for="Circle" class="col-sm-2 control-label">Circle</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Circle"/>
+        </div>
+        <label for="NRB" class="col-sm-2 control-label">NRB</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="NRB"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Via-Tracheostomy" class="col-sm-2 control-label">Via Tracheostomy</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Via-Tracheostomy"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Mask-case" class="col-sm-2 control-label">Mask case</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Mask-case"/>
+        </div>
+        <label for="Nasal-Cannula" class="col-sm-2 control-label">Nasal Cannula</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Nasal-Cannula"/>
+        </div>
+        <label for="Simple-O2-Mask" class="col-sm-2 control-label">Simple O2 Mask </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Simple-O2-Mask"/>
+        </div>
+    </div>
+    <br/>
+    <legend style="font-family: en-font-2;">Recovery</legend>
+    <div class="form-group">
+        <label for="Re-Time" class="col-sm-2 control-label">Time</label>
+        <div class="col-md-2">
+            <input type="time" class="form-control" id="Re-Time"/>
+        </div>
+        <label for="B/P" class="col-sm-2 control-label">B/P</label>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="B/P"/>
+        </div>
+        <label for="O2-Sat" class="col-sm-2 control-label">O2 Sat</label>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="O2-Sat"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="PACU" class="col-sm-2 control-label">PACU</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="PACU"/>
+        </div>
+        <label for="ICU" class="col-sm-2 control-label">ICU</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="ICU"/>
+        </div>
+        <label for="L-D" class="col-sm-2 control-label">L&D</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="L-D"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Re-awake" class="col-sm-2 control-label">Awake</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Re-awake"/>
+        </div>
+        <label for="stable" class="col-sm-2 control-label">Stable</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="stable"/>
+        </div>
+        <label for="unstable" class="col-sm-2 control-label">Unstable</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="unstable"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="asleep" class="col-sm-2 control-label">Asleep</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="Re-asleep"/>
+        </div>
+        <label for="ventilator" class="col-sm-2 control-label">Ventilator</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="ventilator"/>
+        </div>
+        <label for="extubated" class="col-sm-2 control-label">Extubated</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="extubated"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="intubated" class="col-sm-2 control-label">Intubated</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="intubated"/>
+        </div>
+        <label for="oral-airway" class="col-sm-2 control-label">Oral Airway </label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="oral-airway"/>
+        </div>
+        <label for="nasal-airway" class="col-sm-2 control-label">Nasal Airway</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="nasal-airway"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="tpiece-oxygen" class="col-sm-2 control-label">T-Piece Oxygen</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="tpiece-oxygen"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="face-shield-oxygen" class="col-sm-2 control-label">Face Shield Oxygen</label>
+        <div class="col-md-2">
+            <input type="checkbox" class="form-control" id="face-shield-oxygen"/>
+        </div>
+    </div>
+</div>
+</fieldset>
+</form>
+</body>
+<script src="../js/jquery-1.10.2.js"></script>
+<script src="../js/anesthesia.js"></script>
+</html>

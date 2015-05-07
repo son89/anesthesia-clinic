@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fe" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <title>برگه ویزیت قبل از عمل بیماران</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Twitter Bootstrap Version2.0 form error example from w3resource.com.">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-switch.css" rel="stylesheet">
+    <link href="../css/forms.css" rel="stylesheet">
+</head>
+<style>
+    .screen{
+        background-color:#c0c0c0;
+    }
+</style>
+<script src="../js/jquery-1.10.2.js"></script>
+<body style="background-color: #ffffff">
+<!-- Windows Popup 1 for Operation -->
+<div class="modal fade" id="op-list-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="op-list-popuplable" style="text-align: center">لیست کامل عمل های جراحی</h4>
+            </div>
+            <div class="modal-body">
+                <select id = "op-list-more" class="form-control" style="font-family: font-style-3;">
+                    <option>قلبی 3 </option>
+                    <option>قلبی 4</option>
+                    <option>قلبی 9</option>
+                    <option>قلبی 5</option>
+                    <option>قلبی 6</option>
+                    <option>قلبی 7</option>
+                    <option>قلبی 8</option>
+                    <option>عروقی 3</option>
+                    <option>عروقی 4</option>
+                    <option>عروقی 5</option>
+                    <option>عروقی 6</option>
+                    <option>عروقی 7</option>
+                    <option>عروقی 8</option>
+                    <option>عروقی 9</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button id="op-list-more-choice" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">خروج</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Windows Popup 2 for Drugs -->
+<div class="modal fade" id="drugs-list-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="drugs-list-popuplable" style="text-align: center">لیست کامل عمل های جراحی</h4>
+            </div>
+            <div class="modal-body">
+                <select id = "drugs-list-more" class="form-control" style="font-family: font-style-3;">
+                    <option>داروی 1</option>
+                    <option>داروی 2</option>
+                    <option>داروی 3</option>
+                    <option>داروی 4</option>
+                    <option>داروی 5</option>
+                    <option>داروی 6</option>
+                    <option>داروی 7</option>
+                    <option>داروی 8</option>
+                    <option>داروی 9</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button id="drugs-list-more-choice" type="button" class="btn btn-primary" data-dismiss="modal">انتخاب</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">خروج</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Windows Popup -->
+<div class="container">
+    <form class="form-horizontal" method="POST" action="http://172.15.0.131:3000/form1">
+        <fieldset>
+            <div>
+                <div class="header screen" style="text-align: center;">
+                    <div class="col-xs-9">
+                        <h3 style="font-family: font-style-2; text-align: center; margin-top: -10px;">برگه ویزیت قبل از عمل بیماران</h3>
+                     </div>
+                    <div class="col-xs-3">
+                        <img class="im" src="../images/header.png">
+                    </div>
+                </div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button id="res-btn" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="col-xs-pull-7">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right" style="font-family: font-style-3;">
+                                <li><a id="name-show" href="#">نام و نام خانوادگی کاربر</a></span></li>
+                                <li><a id="time" href="#"></a></li>
+                                <li><a id="today-date" href="#" data-toggle="modal" data-target="#surgeon"></a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </div><!-- /.container-fluid -->
+            </nav>
+            <legend style="font-family: font-style-2;">مشخصات شناسنامه ای</legend>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نام</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="name" type="text" class="form-control" id="name" style="font-family: font-style-1, Arial, sans-serif;" placeholder="نام بیمار">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نام خانوادگی</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="last_name" type="text" class="form-control" id="last-name" style="font-family: font-style-1;" placeholder="نام خانوادگی بیمار">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">جنسیت</label>
+                        <div class="col-md-3 col-md-offset-7">
+                            <select name="sex" id="sex" class="form-control"  style="font-family: font-style-3;">
+                                <option>مرد</option>
+                                <option >زن</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">سن</label>
+                        <div class="col-md-3 col-md-offset-7">
+                            <input name="age" id="age"  type="text" class="form-control" style="font-family: font-style-1;" placeholder="سن بیمار">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label for="patient-op" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;"> عمل جراحی</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <select id = "patient-op" class="form-control" style="font-family: font-style-3;">
+                                <option>خالی</option>
+                                <option>قلبی  </option>
+                                <option>عروقی </option>
+                                <option>همه</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="patient-op-choice-div" class="form-group list-hide">
+                        <div class="col-md-4 col-md-offset-5">
+                            <select name="patient_operation" id = "patient-op-choice" class="form-control" style="font-family: font-style-3;">
+                                <option id="empty" class="list-hide">خالی</option>
+                                <option id="heart1" class="list-hide">قلبی 1</option>
+                                <option id="heart2" class="list-hide">قلبی 2</option>
+                                <option id="orogh1" class="list-hide">عروقی 1</option>
+                                <option id="orogh2" class="list-hide">عروقی 2</option>
+                                <option id="more" class="list-hide">بیشتر</option>
+                            </select>
+                            <!--this is hide////////////////:D -->
+                            <button id="popup" type="button" class="list-hide" data-toggle="modal" data-target="#op-list-popup"></button>
+                            <!--/////////////////////////////////////////////////////-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 ">
+                    <legend style="font-family: font-style-2;">بیماری زمینه ای:</legend>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label" style="font-family: font-style-3;">DM</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="dm" id="DM" type="checkbox" class="form-control">
+                            <input name="dm" id="DM_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                        <label class="col-xs-3 control-label" style="font-family: font-style-3;">HTN</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="htn" id="HTN" type="checkbox" class="form-control">
+                            <input name="htn" id="HTN_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-3 control-label" style="font-family: font-style-3;">Asthma</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="asthma" id="Asthma" type="checkbox" class="form-control">
+                            <input name="asthma" id="Asthma_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-3 control-label" style="font-family: font-style-3;">Airway Hyperactive</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="airway_hyperactive" id="Airway-Hyperactive" type="checkbox" class="form-control">
+                            <input name="airway_hyperactive" id="Airway_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                        <label  class="col-xs-3 control-label" style="font-family: font-style-3;">Current Common Cold</label>
+                        <div class="col-xs-3 checkbox-direction">
+                            <input name="current_common_cold" id="Current-Common-Cold"  type="checkbox" class="form-control">
+                            <input name="current_common_cold" id="Current-Common-Cold_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group"></div>
+                    <div id="sickness-history-div" class="form-group">
+                        <label for="sickness-history-list" class="col-md-2 control-label pull-right" style="font-family: font-style-3;">سابقه بیماری زمینه ای</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <select name="more_sickness" id = "sickness-history-list" class="form-control" style="font-family: font-style-3;">
+                                <option>DM</option>
+                                <option>HTN</option>
+                                <option>Asthma</option>
+                                <option>Airway Hyperactive</option>
+                                <option>Current Common Cold</option>
+                            </select>
+                            <span id="sickness-duplicate-error" class="help-block list-hide">این گزینه انتخاب شده است</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-3 col-md-offset-7">
+                            <button id="check-list11" type="button" class="col-md-12 btn btn-primary pull-right">انتخاب</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <div class="col-md-5 col-md-offset-5">
+                            <textarea name="sickness_history_list"  id="save-sickness-history"  class="form-control" style="font-family: font-style-1;" rows="3" readonly="readonly"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label for="more-sickness-history" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;"> بیماریها اضافه</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="more_sickness_history" type="text" class="form-control" id="more-sickness-history" style="font-family: font-style-1;" placeholder="لیست بیماریها اضافه">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <legend style="font-family: font-style-2;">سابقه مصرف دارو:</legend>
+                    <div id="drugs_list_div" class="form-group">
+                        <label for="drugs_list" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">لیست داروها</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <select id = "drugs_list" class="form-control" style="font-family: font-style-3;">
+                                <option>خالی</option>
+                                <option>داروی 1</option>
+                                <option>داروی 2</option>
+                                <option>داروی 3</option>
+                                <option id="more-drugs">بیشتر</option>
+                            </select>
+                            <span id="error-list-text" class="help-block list-hide">لیست دارو ها نمی تواند خالی باشد</span>
+                            <!--this is hide////////////////:D -->
+                            <button id="popup-1" type="button" class="list-hide" data-toggle="modal" data-target="#drugs-list-popup"></button>
+                            <!--/////////////////////////////////////////////////////-->
+                        </div>
+                    </div>
+                    <div id="drugs-explain-div" class="form-group">
+                        <label for="drugs-explain" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نحوه ی استفاده</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="how_to_use_drugs" type="text" class="form-control" id="drugs-explain" style="font-family: font-style-1;" placeholder="توضیحات بیشتر">
+                            <span id="error-explain-text" class="help-block list-hide">توضیحات مربوط به دارو نمیتواند خالی باشد</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-3 col-md-offset-7">
+                                <button id="save-list2" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" >
+                        <div id="table-drugs-div" class="inside-forms list-hide">
+                            <table class="table table-striped" id="table_drugs">
+                                <tr id="first_row_drugs">
+                                    <td style="font-family: font-style-2;"><h4>داروی انتخاب شده</h4></td>
+                                    <td style="font-family: font-style-2;"><h4>نحوه ی استفاده</h4></td>
+                                    <td style="font-family: font-style-2;"><h4>ویرایش</h4></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label pull-right" style="font-family: font-style-3;">مصرف سیگار</label>
+                        <div class="col-md-5 col-md-offset-5" style="direction: ltr">
+                            <input name="smoke" id="smoke"  type="checkbox" class="form-control">
+                            <input name="smoke" id="smoke_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label pull-right" style="font-family: font-style-3">اعتیاد</label>
+                        <div class="col-md-5 col-md-offset-5" style="direction: ltr;">
+                            <input name="addicted" id="addicted"  type="checkbox" class="form-control">
+                            <input name="addicted" id="addicted_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                <legend style="font-family: font-style-2;">حساسیت دارویی</legend>
+                    <div id="drugs-sensitive-div" class="form-group">
+                        <label for="drugs-sensitive" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نوع دارو</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <select id = "drugs-sensitive" class="form-control" style="font-family: font-style-3;">
+                                <option>خالی</option>
+                                <option>داروی 1</option>
+                                <option>داروی 2</option>
+                                <option>داروی 3</option>
+                                <option id="more-drugs-sen">بیشتر</option>
+                            </select>
+                            <span id="drugs-sensitive-error" class="help-block list-hide">لیست دارو ها نمی تواند خالی باشد</span>
+                        </div>
+                    </div>
+                    <div id="sensitive-explain-div" class="form-group">
+                        <label for="sensitive-kind" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">نوع واکنش </label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input type="text" class="form-control" id="sensitive-kind" style="font-family: font-style-1;" placeholder="نوع واکنش">
+                            <span id="error-sensitive-text" class="help-block list-hide">نوع واکنش باید نوشته شود</span>
+                    </div>
+                </div>
+                <div id="more-sensitive-explain-div" class="form-group">
+                        <label  class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">توضیحات بیشتر</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input type="text" class="form-control" id="more-sensitive-explain" style="font-family: font-style-1;" placeholder="توضیحات بیشتر">
+                            <span id="sensitive-explain-text" class="help-block list-hide">توضیحات نمیتواند خالی باشد</span>
+                        </div>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="form-group">
+                        <div class="col-md-3 col-md-offset-7">
+                            <button id="save-list3" type="button" class="col-sm-12 btn btn-primary pull-right">انتخاب</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div id="table-sensitive-div" class="inside-forms list-hide">
+                        <table class="table table-striped" id="table_sensitive">
+                            <tr id="first_row_sensitive">
+                                <td style="font-family: font-style-2;"><h4>داروی انتخاب شده</h4></td>
+                                <td style="font-family: font-style-2;"><h4>نوع واکنش</h4></td>
+                                <td style="font-family: font-style-2;"><h4>توضیحات</h4></td>
+                                <td style="font-family: font-style-2;"><h4>ویرایش</h4></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <legend style="font-family: font-style-2;">معاینه فیزیکی:</legend>
+                    <label for="nerves" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">عصبی</label>
+                    <div class="col-md-5 col-md-offset-5">
+                        <input name="nerves" type="text" class="form-control" id="nerves" style="font-family: font-style-1;" placeholder="عصبی">
+                    </div>
+                    <br/>
+                    <br/>
+                    <legend style="font-family: font-style-2;">علائم حیاتی-توده بدنی:</legend>
+                    <div class="form-group">
+                        <label for="heart-number" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">تعداد ضربان قلب</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="heart_number" type="number" class="form-control" id="heart-number" style="font-family: font-style-1;" placeholder="در دقیقه">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="blood-presure-number" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">فشار خون</label>
+                            <div class="col-md-5 col-md-offset-5">
+                                <input name="blood_presure_number" type="number" class="form-control" id="blood-presure-number" style="font-family: font-style-1;" placeholder="سیستولیک">
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="blood_presure_number2" type="number" class="form-control" id="blood-presure-number2" style="font-family: font-style-1;" placeholder="دیاستولیک">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="breath-number" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">تعداد تنفس </label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="breath_number" type="number" class="form-control" id="breath-number" style="font-family: font-style-1;" placeholder="در دقیقه">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="body-temprather" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">دمای بدن </label>
+                        <div name="body_temprather" class="col-md-5 col-md-offset-5">
+                            <input type="number" class="form-control" id="body-temprather" style="font-family: font-style-1;" placeholder="سانتی گراد">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="heigth" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">قد</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="heigth" type="number" class="form-control" id="heigth" style="font-family: font-style-1;" placeholder="سانتی متر">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="width" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">وزن</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="width" type="number" class="form-control" id="width" style="font-family: font-style-1;" placeholder="کیلوگرم">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="heart" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">قلبی</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="heart" type="text" class="form-control" id="heart" style="font-family: font-style-1;" placeholder="قلبی">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="breath" class="col-sm-2 control-label pull-right" style="font-family: font-style-3;">تنفسی</label>
+                        <div class="col-md-5 col-md-offset-5">
+                            <input name="breath" type="text" class="form-control" id="breath" style="font-family: font-style-1;" placeholder="تنفسی">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group row">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;"> طبیعی بودن طول دندان های پیشین بالایی</label>
+                        <div id="tooth-size-div" class="col-md-1 col-md-offset-5 checkbox-direction">
+                            <input name="tooth_size" id="tooth-size" type="checkbox" class="form-control"  data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="tooth_size" id="tooth-size_hide" type="hidden" value="false" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="tooth_size_describe" type="text" class="form-control list-hide" id="tooth-size-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">وضعیت دندانها </label>
+                        <div id="tooth-condition-div" class="col-md-1 col-md-offset-5 checkbox-direction">
+                            <input name="tooth_condition" id="tooth-condition" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="tooth_condition" id="tooth-condition_hide" type="hidden" value="false" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="tooth_condition_describe" type="text" class="form-control list-hide" id="tooth-condition-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">ارتباط فک بالا با پایین</label>
+                        <div  id="face-connection-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="face_connection" id="face-connection" type="checkbox" class="form-control"  data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="face_connection" id="face-connection_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="face_connection_describe" type="text" class="form-control list-hide" id="face-connection-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">توانایی راندن فک پایین به جلوی فک بالا</label>
+                        <div id="face-ability-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="face_ability" id="face-ability" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="face_ability" id="face-ability_hide" type="hidden" value="false" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="face_ability_describe" type="text" class="form-control list-hide" id="face-ability-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">فاصله دندانهای نیش بالاو پایین</label>
+                        <div  id="tooth-distance-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="tooth_distance" id="tooth-distance" type="checkbox" class="form-control"  data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="tooth_distance" id="tooth-distance_hide" type="hidden" value="false" class="form-control"  data-on-text="غیر نرمال"data-off-text="نرمال">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="tooth_distance_describe" type="text" class="form-control list-hide" id="tooth-distance-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">سایز زبان</label>
+                        <div id="tongue-size-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="tongue_size" id="tongue-size" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="tongue_size" id="tongue-size_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="tongue_size_describe" type="text" class="form-control list-hide" id="tongue-size-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">دیدن اوولا</label>
+                        <div id="eye-sight-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="eye_sight" id="eye-sight" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="eye_sight" id="eye-sight_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="eye_sight_describe" type="text" class="form-control list-hide" id="eye-sight-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label  class="col-md-5 control-label pull-right" style="font-family: font-style-3;">ریش بسیار بلند</label>
+                        <div id="long-bear-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="long_bear" id="long-bear" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="long_bear" id="long-bear_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="long_bear_describe" type="text" class="form-control list-hide" id="long-bear-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">TMD در حداکثر اکستنشن سر</label>
+                        <div id="TMD-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="tmd" id="TMD" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="tmd" id="TMD_hide" type="hidden" value="false">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="tmd_describe" type="text" class="form-control list-hide" id="TMD-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">طول گردن</label>
+                        <div id="neck-size-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="neck_size" id="neck-size" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="neck_size" id="neck-size_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="neck_size_describe" type="text" class="form-control list-hide" id="neck-size-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">محدوده حرکتی گردن</label>
+                        <div id="neck-area-turn-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="neck_area_turn" id="neck-area-turn" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="neck_area_turn" id="neck-area-turn_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="neck_area_turn_describe" type="text" class="form-control list-hide" id="neck-area-turn-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">قطر گردن</label>
+                        <div id="neck-diamter-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="neck_diameter" id="neck-diamter" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="neck_diameter" id="neck-diamter_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="neck_diameter_describe" type="text" class="form-control list-hide" id="neck-diamter-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                        <label class="col-md-5 control-label pull-right" style="font-family: font-style-3;">خرخر شبانه</label>
+                        <div id="night-sleep-problem-div" class="col-md-1 col-md-offset-5" style="direction: ltr">
+                            <input name="night_sleep_problem" id="night-sleep-problem" type="checkbox" class="form-control" data-on-text="غیر نرمال"data-off-text="نرمال">
+                            <input name="night_sleep_problem" id="night-sleep-problem_hide" type="hidden" value="false">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-4 col-xs-offset-6">
+                            <input name="night_sleep_problem_describe" type="text" class="form-control list-hide" id="night-sleep-problem-discribe" style="font-family: font-style-1;" placeholder="توضیح">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <legend style="font-family: font-style-2;">ریسک عمل</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label pull-right" style="font-family: font-style-3;">ریسک عمل</label>
+                        <div class="col-xs-5 col-xs-offset-3">
+                            <select name="operation_risk" id = "op-risk" class="form-control" style="font-family: font-style-3;">
+                                <option>ASA I</option>
+                                <option>ASA II</option>
+                                <option>ASA III</option>
+                                <option>ASA IV</option>
+                                <option>ASA V</option>
+                                <option>ASAE I</option>
+                                <option>ASAE II</option>
+                                <option>ASAE III</option>
+                                <option>ASAE IV</option>
+                                <option>ASAE V</option>
+                            </select>
+                        </div>
+                </div>
+            </div>
+                <legend style="font-family: font-style-2;">سولات متفرقه</legend>
+                <div class="col-md-12" >
+                    <div class="form-group">
+                            <label  class="col-sm-4 control-label pull-right" style="font-family: font-style-3;">اگر سوال دیگری در خصوص فرم یا موارد دیگری دارید بیان کنید</label>
+                        <div class="col-md-4 col-md-offset-4">
+                            <textarea name="other_question" class="form-control" style="font-family: font-style-1;" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" >
+                    <br/>
+                    <legend style="font-family: font-style-2;">بعد از پاسخ گویی به تمام سولات فرم را ارسال کنید</legend>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-xs-4 col-md-offset-1">
+                                <button id="submit" type="submit" class="btn btn-success btn-lg">ارسال</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+</div>
+</body>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-switch.js"></script>
+<script src="../js/form-pre-op.js"></script>
+<script src="../js/time.js"></script>
+</html>
