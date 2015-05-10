@@ -14,6 +14,10 @@ namespace clinik
 		{
 
 		}
+		public void register_patient_form_clicked(object sender, EventArgs e)
+		{
+			Response.Redirect("site/forms/patient/patient_form.aspx");
+		}
 		public void btn_show_edit_patient_form_clicked(object sender, EventArgs e)
 		{
 			Response.Redirect("site/logins/patient_login/patient_login.aspx");

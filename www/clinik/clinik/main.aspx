@@ -119,7 +119,7 @@
 					<h2 class="text-good">ورود متخصص</h2>
 					<p>پنل متخصصین</p>
 
-					<form runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="#" dir="ltr">
+					<form runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="" dir="ltr">
 						<div class="form-group">
 							<input name="username" type="text" class="lightblue_input form-control" id="username" placeholder="username">
 						</div>
@@ -142,16 +142,12 @@
 					<img class="img-rounded" src="view/images/patient.png" alt="Generic placeholder image" width="140" height="140">
 					<h2 class="text-good">فرم بیمار</h2>
 					<p>لطفا فرم را پر کنید</p>
-					<form class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="#">
+					<form class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="">
 						<div class="form-group">
-							<a href="site/forms/patient/patient_form.aspx">
-								<button type="submit" class="btn btn-info box-shadow" style="width:200px;font-size:17px;">ثبت فرم</button>	
-							</a>
+							<asp:Button Text="ثبت فرم" id="register_patient_form" OnClick="register_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
 						</div>
 						<div class="form-group">
-							<a href="main.aspx">
-								<asp:Button id="btn_show_edit_patient_form" Text="مشاهده یا ویرایش فرم ثبت شده" OnClick="btn_show_edit_patient_form_clicked" UseSubmitBehavior="true" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
-							</a>
+							<asp:Button Text="مشاهده یا ویرایش فرم ثبت شده" id="btn_show_edit_patient_form" OnClick="btn_show_edit_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
 						</div>
 					</form>
 				</div>

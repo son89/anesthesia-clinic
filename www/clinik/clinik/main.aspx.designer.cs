@@ -15,6 +15,8 @@ namespace clinik {
 		
 		protected System.Web.UI.WebControls.Button btn_login_doctor;
 		
+		protected System.Web.UI.WebControls.Button register_patient_form;
+		
 		protected System.Web.UI.WebControls.Button btn_show_edit_patient_form;
 	}
 }
