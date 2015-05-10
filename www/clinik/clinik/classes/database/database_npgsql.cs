@@ -28,13 +28,15 @@ namespace clinik
 			this.database_name = database_name;
 		}
 
-		public void connect()
+		public void create()
 		{
 			string connection = "Server=" + this.server_address + ";Port=" + this.port + ";User Id=" + this.user_id + ";Password=" + this.password + ";Database=" + this.database_name + ";";
 			conn = new NpgsqlConnection(connection);
+		}
+		public void open()
+		{
 			conn.Open();
 		}
-
 		public void disconnect()
 		{
 			conn.ClearPool();

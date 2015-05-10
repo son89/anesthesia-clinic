@@ -176,13 +176,14 @@
     <Content Include="view\javascript\doctor_register_login.js" />
     <Content Include="site\panel\doctor_panel.aspx" />
     <Content Include="site\logins\doctor_login\doctor_login.aspx" />
-    <Content Include="packages.config" />
     <Content Include="view\images\avatar.png" />
     <Content Include="view\images\doctor-drawing.png" />
     <Content Include="view\images\patient.png" />
-    <Content Include="site\forms\patient\patient_form.aspx" />
     <Content Include="view\css\costom.css" />
     <Content Include="classes\mail\test.aspx" />
+    <Content Include="site\forms\patient\show_edit_patient_form.aspx" />
+    <Content Include="site\forms\patient\patient_form.aspx" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -207,12 +208,6 @@
     <Compile Include="site\logins\doctor_login\doctor_login.aspx.designer.cs">
       <DependentUpon>doctor_login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\forms\patient\patient_form.aspx.cs">
-      <DependentUpon>patient_form.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\forms\patient\patient_form.aspx.designer.cs">
-      <DependentUpon>patient_form.aspx</DependentUpon>
-    </Compile>
     <Compile Include="classes\clinik_api\clinik_api.cs" />
     <Compile Include="classes\mail\mail.cs" />
     <Compile Include="classes\mail\test.aspx.cs">
@@ -220,6 +215,18 @@
     </Compile>
     <Compile Include="classes\mail\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\show_edit_patient_form.aspx.cs">
+      <DependentUpon>show_edit_patient_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\show_edit_patient_form.aspx.designer.cs">
+      <DependentUpon>show_edit_patient_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\patient_form.aspx.cs">
+      <DependentUpon>patient_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\forms\patient\patient_form.aspx.designer.cs">
+      <DependentUpon>patient_form.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

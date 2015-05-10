@@ -3,5 +3,5 @@
 /var/www/clinik/clinik/bin/clinik.dll
 /var/www/clinik/clinik/obj/Debug/clinik.dll
 /var/www/clinik/clinik/obj/Debug/clinik.dll.mdb
-/var/www/clinik/clinik/bin/Mono.Security.dll
 /var/www/clinik/clinik/bin/Npgsql.dll
+/var/www/clinik/clinik/bin/Mono.Security.dll

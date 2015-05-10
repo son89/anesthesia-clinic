@@ -136,7 +136,7 @@
 				</div>
 
 				<div class="form-group">
-					<label class="col-md-2 control-label pull-right">ایمیل</label>
+					<label class="col-md-2 control-label pull-right">شماره مبایل</label>
 					<div class="col-md-4 pull-right">
 						<asp:TextBox id="mobile_phone_number" CssClass="form-control lightblue_input" placeholder="شماره مبایل" runat="server"/>
 					</div>
@@ -153,10 +153,10 @@
 					<label class="col-md-2 control-label pull-right">نوع عمل جراحی</label>
 					<div class="col-md-4 pull-right">
 						<asp:DropDownList id="cat_op_list" CssClass="form-control lightblue_input" runat="server">
-							<asp:ListItem Text="خالی" Value="null"></asp:ListItem>
-							<asp:ListItem Text="قلب" Value="heart"></asp:ListItem>
-							<asp:ListItem Text="بایپس عروقی" Value="Coronary bypass"></asp:ListItem>
-							<asp:ListItem Text="همه" Value="all"></asp:ListItem>
+							<asp:ListItem Text="خالی"></asp:ListItem>
+							<asp:ListItem Text="قلب"></asp:ListItem>
+							<asp:ListItem Text="بایپس عروقی"></asp:ListItem>
+							<asp:ListItem Text="همه"></asp:ListItem>
 						</asp:DropDownList>
 					</div>
 				</div>
@@ -418,7 +418,7 @@
 
 				<div class="form-group">
 					<div class="col-md-8 control-label pull-right">
-						<textarea name="heart_problem_list" id="save-heart-problem" class="form-control lightblue_input"  rows="3" readonly="readonly">
+						<textarea id="save-heart-problem" class="form-control lightblue_input"  rows="3" readonly="readonly">
 						</textarea>
 					</div>
 				</div>
@@ -427,26 +427,23 @@
 					<label class="col-md-9 control-label pull-right">آیا سابقه ای از فشار خون بالا داشته اید یا مبتلا به بیماری فشار خون هستید؟</label>
 					<div class="col-md-1">
 						<input name="blood_presure" type="checkbox" class="form-control lightblue_input" id="blood-presure">
-						<input id="blood-presure-hide" name="blood_presure" type="hidden" value="false">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-md-9 control-label pull-right">آیا سابقه ای از قند بالای خون داشته اید یا مبتلا به بیماری قند خون (دیابت) هستید؟</label>
 					<div class="col-md-1">
-						<input name="diabetes" type="checkbox" class="form-control lightblue_input" id="diabeti">
-						<input id="diabeti-hide" name="diabetes" type="hidden" value="false">
+						<input id="diabetes" type="checkbox" class="form-control lightblue_input" id="diabeti">
 					</div>
 				</div>
 	
 				<div class="form-group">
 					<label class="col-md-9 control-label pull-right">آیا دچار مشکلات ریوی شده اید؟</label>
 					<div class="col-md-1">
-						<input name="lung_problem" type="checkbox" class="form-control lightblue_input" id="breath-problem">
-						<input id="breath-problem-hide" name="lung_problem" type="hidden" value="false">
+						<input id="lung_problem" type="checkbox" class="form-control lightblue_input" id="breath-problem">
 					</div>
 				</div>
-
+		
 				<div id="breath_problem_div" class="form-group">
 					<div class="col-md-8 control-label pull-right">
 						<select id="breath-problem-list" class="form-control lightblue_input">
