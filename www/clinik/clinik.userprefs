@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="clinik/clinik.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="iceweasel" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/site/forms/patient/patient_form.aspx.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/site/forms/patient/patient_form.aspx">
     <Files>
-      <File FileName="clinik/site/forms/patient/patient_form.aspx" Line="168" Column="28" />
-      <File FileName="clinik/site/forms/patient/patient_form.aspx.cs" Line="44" Column="7" />
+      <File FileName="clinik/site/forms/patient/patient_form.aspx" Line="174" Column="12" />
+      <File FileName="clinik/site/forms/patient/patient_form.aspx.cs" Line="38" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

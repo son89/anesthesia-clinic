@@ -184,6 +184,7 @@
     <Content Include="site\forms\patient\show_edit_patient_form.aspx" />
     <Content Include="site\forms\patient\patient_form.aspx" />
     <Content Include="packages.config" />
+    <Content Include="site\logins\patient_login\patient_login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -228,6 +229,12 @@
     <Compile Include="site\forms\patient\patient_form.aspx.designer.cs">
       <DependentUpon>patient_form.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\logins\patient_login\patient_login.aspx.cs">
+      <DependentUpon>patient_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\logins\patient_login\patient_login.aspx.designer.cs">
+      <DependentUpon>patient_login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -266,5 +273,6 @@
     <Folder Include="view\icu_dan\views\" />
     <Folder Include="classes\clinik_api\" />
     <Folder Include="classes\mail\" />
+    <Folder Include="site\logins\patient_login\" />
   </ItemGroup>
 </Project>

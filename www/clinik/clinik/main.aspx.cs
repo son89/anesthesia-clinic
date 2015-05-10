@@ -14,6 +14,10 @@ namespace clinik
 		{
 
 		}
+		public void btn_show_edit_patient_form_clicked(object sender, EventArgs e)
+		{
+			Response.Redirect("site/logins/patient_login/patient_login.aspx");
+		}
 		public void btn_login_doctor_click(object sender, EventArgs e)
 		{
 			database_npgsql pg = new database_npgsql("127.0.0.1", "5432", "postgres", "M17511752gh", "postgres");

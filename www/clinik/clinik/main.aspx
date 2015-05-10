@@ -16,9 +16,6 @@
 		<link href="view/css/shadow.css" rel="stylesheet">
 		<link href="view/css/background.css" rel="stylesheet">
 		<link href="view/css/costom.css" rel="stylesheet">
-
-		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
-		<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body class="background">
 		<!-- menu_bar -->
@@ -122,7 +119,7 @@
 					<h2 class="text-good">ورود متخصص</h2>
 					<p>پنل متخصصین</p>
 
-					<form runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="" dir="ltr">
+					<form runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="#" dir="ltr">
 						<div class="form-group">
 							<input name="username" type="text" class="lightblue_input form-control" id="username" placeholder="username">
 						</div>
@@ -139,12 +136,13 @@
 					</form>
 
 				</div>
+
 				<!-- patient -->
 				<div class="col-lg-6 text-center">
 					<img class="img-rounded" src="view/images/patient.png" alt="Generic placeholder image" width="140" height="140">
 					<h2 class="text-good">فرم بیمار</h2>
 					<p>لطفا فرم را پر کنید</p>
-					<span class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3">
+					<form class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="#">
 						<div class="form-group">
 							<a href="site/forms/patient/patient_form.aspx">
 								<button type="submit" class="btn btn-info box-shadow" style="width:200px;font-size:17px;">ثبت فرم</button>	
@@ -152,10 +150,10 @@
 						</div>
 						<div class="form-group">
 							<a href="main.aspx">
-								<button type="submit" class="btn btn-info box-shadow" style="width:200px;font-size:17px;">مشاهده فرم ثبت شده</button>
+								<asp:Button id="btn_show_edit_patient_form" Text="مشاهده یا ویرایش فرم ثبت شده" OnClick="btn_show_edit_patient_form_clicked" UseSubmitBehavior="true" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
 							</a>
 						</div>
-					</span>
+					</form>
 				</div>
 
 			</div>
@@ -165,6 +163,8 @@
 		<footer class="panel-footer" dir="ltr">
 			<p>&copy; 2015, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 		</footer>
-		<!-- /.container -->
+
+		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
+		<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

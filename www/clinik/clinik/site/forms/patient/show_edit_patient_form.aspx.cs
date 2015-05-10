@@ -7,6 +7,13 @@ namespace clinik
 	
 	public partial class show_edit_patient_form : System.Web.UI.Page
 	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			if (Page.IsPostBack == true)
+			{
+			}
+		}
+		
 		/*
 			// select
 		pg.open ();

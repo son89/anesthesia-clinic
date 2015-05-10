@@ -14,5 +14,7 @@ namespace clinik {
 	public partial class main {
 		
 		protected System.Web.UI.WebControls.Button btn_login_doctor;
+		
+		protected System.Web.UI.WebControls.Button btn_show_edit_patient_form;
 	}
 }
