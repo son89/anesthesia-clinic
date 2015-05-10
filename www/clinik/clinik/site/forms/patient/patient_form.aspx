@@ -156,7 +156,6 @@
 							<asp:ListItem Text="خالی"></asp:ListItem>
 							<asp:ListItem Text="قلب"></asp:ListItem>
 							<asp:ListItem Text="بایپس عروقی"></asp:ListItem>
-							<asp:ListItem Text="همه"></asp:ListItem>
 						</asp:DropDownList>
 					</div>
 				</div>
@@ -170,7 +169,7 @@
 							<asp:ListItem Text="قلبی 2"></asp:ListItem>
 							<asp:ListItem Text="عروقی 1"></asp:ListItem>
 							<asp:ListItem Text="عروقی 2"></asp:ListItem>
-							<asp:ListItem Text="بیشتر"></asp:ListItem>
+							<asp:ListItem Text="عمل مورد نظر در لیست وجود ندارد"></asp:ListItem>
 						</asp:DropDownList>
 					</div>
 				</div>
@@ -178,8 +177,8 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label pull-right" style="font-size:18px">لیست همه ی عمل های جراحی</label>
 					<div class="col-md-4 pull-right">
-						<button name="full_op_list" type="button" class="btn btn-info" data-toggle="modal" data-target="#op-list-popup">لیست کامل عمل های جراحی
-						</button>
+						<asp:Button Text="لیست کامل عمل های جراحی" id="full_op_list" CssClass="btn btn-info" data-toggle="modal" data-target="#op-list-popup" runat="server">
+						</asp:Button>
 					</div>
 				</div>
 		
