@@ -152,7 +152,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label pull-right">نوع عمل جراحی</label>
 					<div class="col-md-4 pull-right">
-						<asp:DropDownList id="cat_op_list" CssClass="form-control lightblue_input" runat="server">
+						<asp:DropDownList id="cat_operation_list" CssClass="form-control lightblue_input" runat="server">
 							<asp:ListItem Text="خالی"></asp:ListItem>
 							<asp:ListItem Text="قلب"></asp:ListItem>
 							<asp:ListItem Text="بایپس عروقی"></asp:ListItem>
@@ -163,12 +163,12 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label pull-right">عمل جراحی</label>
 					<div class="col-md-4 pull-right">
-						<asp:DropDownList id="operation_kind" CssClass="form-control lightblue_input" runat="server">
+						<asp:DropDownList id="operation" CssClass="form-control lightblue_input" runat="server">
 							<asp:ListItem Text="خالی" Value="null"></asp:ListItem>
-							<asp:ListItem Text="قلبی 1" Value="heart_1"></asp:ListItem>
-							<asp:ListItem Text="قلبی 2"></asp:ListItem>
-							<asp:ListItem Text="عروقی 1"></asp:ListItem>
-							<asp:ListItem Text="عروقی 2"></asp:ListItem>
+							<asp:ListItem Text="قلبی 1" Value="2"></asp:ListItem>
+							<asp:ListItem Text="قلبی 2" Value="heart_2"></asp:ListItem>
+							<asp:ListItem Text="عروقی 1" Value="heart_3"></asp:ListItem>
+							<asp:ListItem Text="عروقی 2" Value="heart_4"></asp:ListItem>
 							<asp:ListItem Text="عمل مورد نظر در لیست وجود ندارد"></asp:ListItem>
 						</asp:DropDownList>
 					</div>

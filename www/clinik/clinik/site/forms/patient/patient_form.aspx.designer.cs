@@ -33,9 +33,9 @@ namespace clinik {
 		
 		protected System.Web.UI.WebControls.TextBox email;
 		
-		protected System.Web.UI.WebControls.DropDownList cat_op_list;
+		protected System.Web.UI.WebControls.DropDownList cat_operation_list;
 		
-		protected System.Web.UI.WebControls.DropDownList operation_kind;
+		protected System.Web.UI.WebControls.DropDownList operation;
 		
 		protected System.Web.UI.WebControls.Button full_op_list;
 		
