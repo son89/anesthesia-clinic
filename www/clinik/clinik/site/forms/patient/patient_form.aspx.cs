@@ -11,45 +11,72 @@ namespace clinik
 	{
 		public void btn_send_clicked( object sender, EventArgs e )
 		{
-			database_npgsql pg = new database_npgsql ("127.0.0.1", "5432", "postgres", "M17511752gh", "postgres");
-			pg.create ();
+			Random r = new Random();
+			int r_int_1 = r.Next(0, 100000);
+			int r_int_2 = r.Next(0, 100000);
+			string trace_code_rand_string = r_int_1.ToString () + r_int_2.ToString ();
+
+			database_npgsql pg = new database_npgsql("127.0.0.1", "5432", "postgres", "1", "postgres");
+			pg.create();
+
+			bool valid_insert = true;
+			object patient_id = -1;
 
 			// insert
-			object patient_id;
-			pg.open ();
+			pg.open();
 			string temp_1 = "insert into patients_basic_informations values(default, '"
-				+ name.Text
-				+ "', '" + last_name.Text
-				+ "', '" + email.Text
-				+ "', '" + mobile_phone_number.Text
-				+ "', 'null', '" + age.Text
-				+ "', '" + weigth.Text + "', '" + height.Text
-				+ "', true, '" + sex.SelectedValue
-				+ "', '" + personl_id.Text + "') returning id;";
-			NpgsqlCommand ins_command_1 = new NpgsqlCommand (temp_1, pg.get_connection);
+			                + name.Text
+			                + "', '" + last_name.Text
+			                + "', '" + email.Text
+			                + "', '" + mobile_phone_number.Text
+							+ "', '" + trace_code_rand_string
+							+ "', '" + age.Text
+			                + "', '" + weigth.Text + "', '" + height.Text
+			                + "', true, '" + sex.SelectedValue
+			                + "', '" + personl_id.Text + "') returning id;";
+			NpgsqlCommand ins_command_1 = new NpgsqlCommand(temp_1, pg.get_connection);
 			try
 			{
 				patient_id = ins_command_1.ExecuteScalar();
 			}
+			catch(NpgsqlException pge)
+			{
+				valid_insert = false;
+			}
 			finally
 			{
-				pg.disconnect ();
+				pg.disconnect();
 			}
 
-			pg.open ();
-			string temp_2 = "insert into patients_ppo_from_informations values('" + patient_id.ToString ()
-				+ "'," + operation.SelectedValue
-				+ ");";
-			NpgsqlCommand ins_command_2 = new NpgsqlCommand (temp_2, pg.get_connection);
+			// insert_2
+			pg.open();
+			string temp_2 = "insert into patients_ppo_from_informations values('" + patient_id.ToString()
+			                + "'," + operation.SelectedValue
+			                + ");";
+			NpgsqlCommand ins_command_2 = new NpgsqlCommand(temp_2, pg.get_connection);
 			try
 			{
 				ins_command_2.ExecuteNonQuery();
 			}
+			catch(NpgsqlException pge)
+			{
+				valid_insert = false;
+			}
 			finally
 			{
-				pg.disconnect ();
+				pg.disconnect();
 			}
-
+			if (valid_insert == true)
+			{
+				Console.WriteLine ("اطلاعات شما ثبت شد و  شماره پیگیری شما ۰۹۰۹۰۹۰۹ است.اطلاعات به نشانی ایمیل و شماره مبایلتان ارسال میشود. با کلیک در ادامه لطفا اطلاعات ورودی خود را تایید کنید ");
+				Session ["trace_code"] = trace_code_rand_string;
+				Response.Redirect ("show_edit_patient_form.aspx");
+			}
+			else if (valid_insert == false)
+			{
+				Console.WriteLine ("سرور به مشکل برخورد کرده است و بزودی حل میشود. لطفا اطلاعات را دستی پر کنید.همجنین میتوناید از اطلاعات پرینت گرفته و به دکتر مربوطه ارایه دهید.");
+				// sms & email to admins
+			}
 			//Request.Form["username"], Request.Form["password"]
 			//Response.Redirect("site/panel/doctor_panel.aspx");
 

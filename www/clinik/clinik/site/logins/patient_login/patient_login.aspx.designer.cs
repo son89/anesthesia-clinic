@@ -22,5 +22,7 @@ namespace clinik {
 		protected System.Web.UI.WebControls.TextBox name;
 		
 		protected System.Web.UI.WebControls.TextBox last_name;
+		
+		protected System.Web.UI.WebControls.TextBox mobile_number;
 	}
 }

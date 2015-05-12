@@ -15,9 +15,6 @@
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
 		<link href="../../../view/css/costom.css" rel="stylesheet">
-
-		<script src="../../../view/javascript/jquary/jquery-2.1.3.min.js"></script>
-		<script src="../../../view/bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body class="background">
 		<div class="container">
@@ -166,9 +163,9 @@
 						<asp:DropDownList id="operation" CssClass="form-control lightblue_input" runat="server">
 							<asp:ListItem Text="خالی" Value="null"></asp:ListItem>
 							<asp:ListItem Text="قلبی 1" Value="2"></asp:ListItem>
-							<asp:ListItem Text="قلبی 2" Value="heart_2"></asp:ListItem>
-							<asp:ListItem Text="عروقی 1" Value="heart_3"></asp:ListItem>
-							<asp:ListItem Text="عروقی 2" Value="heart_4"></asp:ListItem>
+							<asp:ListItem Text="قلبی 2" Value="3"></asp:ListItem>
+							<asp:ListItem Text="عروقی 1" Value="4"></asp:ListItem>
+							<asp:ListItem Text="عروقی 2" Value="5"></asp:ListItem>
 							<asp:ListItem Text="عمل مورد نظر در لیست وجود ندارد"></asp:ListItem>
 						</asp:DropDownList>
 					</div>
@@ -879,5 +876,8 @@
 				<!--End Windows Popup -->
 			</form>
 		</div>
+
+		<script src="../../../view/javascript/jquary/jquery-2.1.3.min.js"></script>
+		<script src="../../../view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -8,7 +8,7 @@ namespace clinik
 	{
 		public void btn_login_doctor_click(object sender, EventArgs e)
 		{
-			database_npgsql pg = new database_npgsql("127.0.0.1", "5432", "postgres", "M17511752gh", "postgres");
+			database_npgsql pg = new database_npgsql("127.0.0.1", "5432", "postgres", "1", "postgres");
 			pg.create();
 			pg.open();
 			clinik_api d_v = new clinik_api();

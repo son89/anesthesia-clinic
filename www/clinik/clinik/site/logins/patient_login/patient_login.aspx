@@ -21,7 +21,8 @@
 
 	<body class="background font_nazanin" dir="rtl">
 		<div class="container">
-			<form class="" id="patient_login_with_trace_code" runat="server">
+			<legend><h2 class="font_nazanin">ورود با کدپیگیری</h2></legend>
+			<form class="" id="patient_login_with_trace_code" method="post" action="../../forms/patient/show_edit_patient_form.aspx" runat="server">
 				<div class="form-group">
 					<label class="h2">کد پیگیری</label>
 					<asp:TextBox CssClass="form-control lightblue_input" id="trace_code" placeholder="کد پیگیری را وارد کنید" runat="server"/>
@@ -30,8 +31,11 @@
 			</form>
 		</div>
 
+		<hr>
+
 		<div class="container">
-			<form class="" id="patient_login_with_name_and_last_name" runat="server">
+			<legend><h2 class="font_nazanin">ورود با نام نام خانوادگی شماره مبایل</h2></legend>
+			<form class="" id="patient_login_with_name_and_last_name" method="post" action="../../forms/patient/show_edit_patient_form.aspx" runat="server">
 				<div class="form-group">
 					<label class="h2">نام</label>
 					<asp:TextBox CssClass="form-control lightblue_input" id="name" placeholder="نام خود را وارد کنید" runat="server"/>
@@ -40,9 +44,15 @@
 					<label class="h2">نام خانوادگی</label>
 					<asp:TextBox CssClass="form-control lightblue_input" id="last_name" placeholder="نام خانوادگی خود را وارد کنید" runat="server"/>
 				</div>
+				<div class="form-group">
+					<label class="h2">شماره مبایل</label>
+					<asp:TextBox CssClass="form-control lightblue_input" id="mobile_number" placeholder="شماره مبایل خود را وارد کنید" runat="server"/>
+				</div>
 				<asp:Button Text="ورود" UseSubmitBehavior="true" CssClass="btn btn-info box-shadow pull-right col-md-6" runat="server"></asp:Button>
 			</form>
 		</div>
+
+		<hr>
 
 		<script src="../../../view/javascript/jquary/jquery-2.1.3.min.js"></script>
 		<script src="../../../view/bootstrap/js/bootstrap.min.js"></script>

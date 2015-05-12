@@ -144,10 +144,10 @@
 					<p>لطفا فرم را پر کنید</p>
 					<form class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="">
 						<div class="form-group">
-							<asp:Button Text="ثبت فرم" id="register_patient_form" OnClick="register_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
+							<asp:Button Text="ثبت فرم" id="register_patient_form" OnClick="register_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:210px;font-size:17px;" runat="server"></asp:Button>
 						</div>
 						<div class="form-group">
-							<asp:Button Text="مشاهده یا ویرایش فرم ثبت شده" id="btn_show_edit_patient_form" OnClick="btn_show_edit_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:200px;font-size:17px;" runat="server"></asp:Button>
+							<asp:Button Text="مشاهده یا ویرایش فرم ثبت شده" id="btn_show_edit_patient_form" OnClick="btn_show_edit_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:210px;font-size:17px;" runat="server"></asp:Button>
 						</div>
 					</form>
 				</div>
