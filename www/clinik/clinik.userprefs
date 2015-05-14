@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="clinik/clinik.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="/usr/bin/chromium" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="monodevelop" />
   <MonoDevelop.Ide.Workbench ActiveDocument="clinik/site/forms/patient/show_edit_patient_form.aspx.cs">
     <Files>
-      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx.cs" Line="12" Column="4" />
+      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx.cs" Line="42" Column="42" />
+      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx" Line="1" Column="1" />
+      <File FileName="clinik/site/forms/patient/patient_form.aspx" Line="1" Column="1" />
+      <File FileName="clinik/view/bootstrap-switch-master/dist/js/bootstrap-switch.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

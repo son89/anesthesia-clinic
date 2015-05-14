@@ -1,0 +1,11 @@
+{
+	"name":"default_darker",
+	"version":"1.0",
+	"originator":"Xamarin Inc. (http://xamarin.com)",
+	"baseScheme":"Default",
+	"colors":[
+	],
+	"text":[
+		{"name": "Plain Text", "fore":"#333333", "back":"#EAEAEA" }
+	]
+}

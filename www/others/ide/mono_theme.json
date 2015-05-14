@@ -1,0 +1,27 @@
+{
+	"name":"masoud_mono_theme",
+	"version":"1.0",
+	"description":"monodevelop_theme_asp.net_c#",
+	"originator":"Xamarin Inc. (http://xamarin.com)",
+	"baseScheme":"Oblivion",
+	"colors":[
+	],
+	"text":[
+		{"name": "Comment Tag", "fore":"#888A85", "back":"#FBE84E", "weight":"Bold" },
+		{"name": "Preprocessor", "fore":"#719DCF" },
+		{"name": "Preprocessor(Region Name)", "fore":"#719DCF" },
+		{"name": "Keyword(Access)", "fore":"#AD7FA7", "weight":"Bold" },
+		{"name": "User Types", "fore":"#8AE232" },
+		{"name": "User Field Usage", "fore":"#D2D6CD" },
+		{"name": "User Field Declaration", "fore":"#D2D7CD" },
+		{"name": "User Property Usage", "fore":"#D2D6CD" },
+		{"name": "User Property Declaration", "fore":"#D2D6CD" },
+		{"name": "User Event Usage", "fore":"#D2D7CD" },
+		{"name": "User Event Declaration", "fore":"#D2D7CD" },
+		{"name": "User Method Usage", "fore":"#D2D7CD" },
+		{"name": "User Method Declaration", "fore":"#D2D7CD" },
+		{"name": "Diff Header", "fore":"#8AE232", "weight":"Bold" },
+		{"name": "Diff Header(Old)", "fore":"#8AE232", "weight":"Bold" },
+		{"name": "Html Attribute Name", "fore":"#D2D7CD" }
+	]
+}
