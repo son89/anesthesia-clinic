@@ -15,6 +15,8 @@ namespace clinik
 			bool is_valid = d_v.doctor_validation(Request.Form["username"], Request.Form["password"],pg.get_connection);
 			if(is_valid == true)
 			{
+				Session["username"] = Request.Form["username"];
+				Session["password"] = Request.Form["password"];
 				Response.Redirect("site/panel/doctor_panel.aspx");
 			}
 

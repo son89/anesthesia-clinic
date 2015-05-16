@@ -16,7 +16,7 @@
 		<link href="../../../view/css/font.css" rel="stylesheet">
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
-		<link href="../../../view/css/costom.css" rel="stylesheet">
+		<link href="../../../view/css/custom.css" rel="stylesheet">
 	</head>
 
 	<body class="background font_nazanin" dir="rtl">

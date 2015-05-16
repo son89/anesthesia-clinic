@@ -9,7 +9,6 @@ namespace clinik
 	{
 		protected void Page_Load( object sender , EventArgs e )
 		{
-
 			string patient_id = "";
 			bool valid_select = true;
 			string getdata = "";
@@ -89,6 +88,7 @@ namespace clinik
 
 			if( valid_select == false )
 			{
+				ClientScript.RegisterStartupScript(GetType(), "key", "system_error();", true);
 				Console.WriteLine("system moshkel peyda karde ast");
 			}
 			else if( getdata == "" )

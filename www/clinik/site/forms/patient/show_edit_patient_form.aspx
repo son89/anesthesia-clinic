@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 	<head runat="server">
 		<title>مشاهده یا ویرایش پرسشنامه قبل از عمل</title>
 		<meta charset="utf-8">
@@ -15,8 +16,11 @@
 		<link href="../../../view/css/font.css" rel="stylesheet">
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
-		<link href="../../../view/css/costom.css" rel="stylesheet">
+		<link href="../../../view/css/custom.css" rel="stylesheet">
+		<!--cant place it end of page. because we use sript manager but if its jquary perhaps can-->
+		<script src="../../../view/javascript/clinic_api/custom.js"></script>
 	</head>
+
 	<body class="background">
 		<div class="container">
 			<nav class="navbar navbar-default">

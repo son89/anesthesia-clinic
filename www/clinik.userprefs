@@ -1,30 +1,9 @@
 ﻿<Properties StartupItem="clinik/clinik.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="/usr/bin/chromium" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/site/forms/patient/patient_form.aspx">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="iceweasel" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/site/forms/patient/show_edit_patient_form.aspx.cs">
     <Files>
-      <File FileName="clinik/site/forms/patient/patient_form.aspx" Line="873" Column="36" />
-      <File FileName="clinik/site/forms/patient/patient_form.aspx.cs" Line="51" Column="63" />
-      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx" Line="188" Column="56" />
-      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx.cs" Line="77" Column="9" />
+      <File FileName="clinik/site/forms/patient/show_edit_patient_form.aspx.cs" Line="11" Column="4" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="clinik" expanded="True">
-            <Node name="clinik" expanded="True">
-              <Node name="site" expanded="True">
-                <Node name="forms" expanded="True">
-                  <Node name="patient" expanded="True">
-                    <Node name="patient_form.aspx" expanded="True" selected="True" />
-                    <Node name="show_edit_patient_form.aspx" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
