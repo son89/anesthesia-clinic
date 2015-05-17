@@ -13,14 +13,17 @@ namespace clinik
 			pg.open();
 			clinik_api d_v = new clinik_api();
 			bool is_valid = d_v.doctor_validation(Request.Form["username"], Request.Form["password"],pg.get_connection);
-			if(is_valid == true)
+			pg.disconnect();
+			if( is_valid == true )
 			{
 				Session["username"] = Request.Form["username"];
 				Session["password"] = Request.Form["password"];
-				Response.Redirect("site/panel/doctor_panel.aspx");
+				Response.Redirect( "../../panel/doctor_panel.aspx" );
 			}
-
-			pg.disconnect();
+			else
+			{
+				
+			}
 		}
 	}
 }

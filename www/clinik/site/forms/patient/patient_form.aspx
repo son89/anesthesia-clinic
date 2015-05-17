@@ -2,15 +2,14 @@
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 	<head runat="server">
 		<title>پرسشنامه قبل از عمل</title>
-		<meta charset="utf-8">
 		<meta name="author" content="m.gh@linuxmail.org">
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="patient_form">
+		<meta name="description" content="patient form. ppo form.">
 
-		<link rel="icon" href="../../../view/icons/favicon.ico">
+		<link href="../../../view/icons/favicon.ico" rel="icon">
 		<link href="../../../view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../../../view/bootstrap-switch-master/dist/css/bootstrap-switch.min.css" rel="stylesheet">
 		<link href="../../../view/css/font.css" rel="stylesheet">
@@ -18,7 +17,6 @@
 		<link href="../../../view/css/background.css" rel="stylesheet">
 		<link href="../../../view/css/custom.css" rel="stylesheet">
 	</head>
-
 	<body class="background">
 		<div class="container">
 			<nav class="navbar navbar-default">

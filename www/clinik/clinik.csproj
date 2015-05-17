@@ -247,6 +247,16 @@
     <Content Include="view\sb-admin\tables.html" />
     <Content Include="view\javascript\clinic_api\custom.js" />
     <Content Include="view\css\custom.css" />
+    <Content Include="view\sb-admin\index-rtl.html" />
+    <Content Include="view\sb-admin\css\bootstrap-rtl.css" />
+    <Content Include="view\sb-admin\css\bootstrap-rtl.min.css" />
+    <Content Include="view\sb-admin\css\bootstrap.css" />
+    <Content Include="view\sb-admin\css\bootstrap.min.css" />
+    <Content Include="view\sb-admin\css\sb-admin-rtl.css" />
+    <Content Include="view\sb-admin\js\bootstrap.js" />
+    <Content Include="view\sb-admin\js\bootstrap.min.js" />
+    <Content Include="view\sb-admin\js\jquery.js" />
+    <Content Include="view\images\50x50.gif" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -325,6 +335,9 @@
     <None Include="view\icu_dan\views\sample.ejs" />
     <None Include="view\icu_dan\views\startup.ejs" />
     <None Include="view\sb-admin\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="view\sb-admin\LICENSE" />
+    <None Include="view\sb-admin\README.md" />
+    <None Include="view\images\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="view\images\" />
@@ -339,5 +352,6 @@
     <Folder Include="view\bootstrap-switch-master\" />
     <Folder Include="classes\clinic_api\" />
     <Folder Include="view\javascript\clinic_api\" />
+    <Folder Include="view\sb-admin\" />
   </ItemGroup>
 </Project>

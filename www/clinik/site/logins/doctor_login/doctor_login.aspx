@@ -4,28 +4,28 @@
 
 	<head runat="server">
 		<title>doctor register</title>
+		<meta name="author" content="m.gh@linuxmail.org">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="doctor register login">
 
-		<link rel="icon" href="../../../view/icons/favicon.ico">
-
+		<link href="../../../view/icons/favicon.ico" rel="icon">
 		<link href="../../../view/css/doctor_register_login.css" rel="stylesheet">
 		<link href="../../../view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../../../view/css/font.css" rel="stylesheet">
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
+		<link href="../../../view/css/custom.css" rel="stylesheet">
 	</head>
 
 	<body>
 	    <div class="container">
 	        <div class="card card-container">
 	            <img id="profile-img" class="profile-img-card" src="../../../view/images/avatar.png" />
-	            <p id="profile-name" class="profile-name-card"></p>
 	            <form class="form-signin" runat="server">
 	                <span id="reauth-email" class="reauth-email"></span>
-	                <input type="text" name="inp_username" id="inp_username" class="form-control" placeholder="username" required>
-	                <input type="password" name="inp_password" id="inp_password" class="form-control" placeholder="Password" required>
+	                <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
+	                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 	                <div id="remember" class="checkbox">
 	                    <label>
 	                        <input type="checkbox" value="remember-me"> Remember me

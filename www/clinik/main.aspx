@@ -4,12 +4,12 @@
 <html lang="fa">
 	<head runat="server">
 		<title>کلینیک بیهوشی</title>
+		<meta name="author" content="m.gh@linuxmail.org">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="clinik">
 
-		<link rel="icon" href="view/icons/favicon.ico">
-
+		<link href="view/icons/favicon.ico" rel="icon">
 		<link href="view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="view/css/carousel.css" rel="stylesheet">
 		<link href="view/css/font.css" rel="stylesheet">
@@ -30,12 +30,12 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#">کلینیک بیهوشی</a>
+							<a class="navbar-brand" href="">کلینیک بیهوشی</a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav pull-right">
 								<li class="active pull-right">
-									<a href="site/logins/doctor_login/doctor_login.aspx">doctor login</a></li>
+									<a href="site/logins/doctor_login/doctor_login.aspx">پنل متخصصین</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<li class="dropdown">
