@@ -16,10 +16,13 @@
 		<link href="view/css/shadow.css" rel="stylesheet">
 		<link href="view/css/background.css" rel="stylesheet">
 		<link href="view/css/custom.css" rel="stylesheet">
+
+		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
+		<script src="view/javascript/clinic_api/custom.js"></script>
 	</head>
 	<body class="background">
 		<!-- menu_bar -->
-		<div class="navbar-wrapper">
+		<div class="navbar-wrapper font_nazanin">
 			<div class="container">
 				<nav class="navbar navbar-inverse navbar-static-top">
 					<div class="container">
@@ -30,12 +33,14 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="">کلینیک بیهوشی</a>
+		<!--- seprator-->	<a class="navbar-brand" href=""></a>
+							<a class="navbar-brand" href="" style="font-size:20px">کلینیک بیهوشی</a>
 						</div>
 						<div id="navbar" class="navbar-collapse collapse">
 							<ul class="nav navbar-nav pull-right">
 								<li class="active pull-right">
-									<a href="site/logins/doctor_login/doctor_login.aspx">پنل متخصصین</a></li>
+									<a href="site/logins/doctor_login/doctor_login.aspx" style="font-size:20px">پنل متخصصین</a>
+								</li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<li class="dropdown">
@@ -68,7 +73,7 @@
 			</ol>
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="" alt="First slide">
+					<img src="view/images/50x50.gif" alt="">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>Example headline.</h1>
@@ -78,7 +83,6 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="" alt="Second slide">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>Another example headline.</h1>
@@ -88,7 +92,6 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="" alt="Third slide">
 					<div class="container">
 						<div class="carousel-caption">
 							<h1>One more for good measure.</h1>
@@ -115,11 +118,10 @@
 			<div class="row" style="margin-bottom: 5%;">
 				<!-- doctor-->
 				<div class="col-lg-6 text-center">
-					<img class="img-rounded" src="view/images/doctor-drawing.png" alt="Generic placeholder image" width="115" height="140">
+					<img class="img-rounded" src="view/images/doctor-drawing.png" width="115" height="140">
 					<h2 class="text-good">ورود متخصص</h2>
 					<p>پنل متخصصین</p>
-
-					<form runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="" dir="ltr">
+					<form id="doctor_form" runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="" dir="ltr">
 						<div class="form-group">
 							<input name="username" type="text" class="lightblue_input form-control" id="username" placeholder="username">
 						</div>
@@ -132,9 +134,7 @@
 						<div class="form-group">
 							<asp:Button runat="server" id="btn_login_doctor" UseSubmitBehavior="true" CssClass="btn btn-info pull-right box-shadow" Text="log in" Style="width:100px" OnClick="btn_login_doctor_click"/>
 						</div>
-
 					</form>
-
 				</div>
 
 				<!-- patient -->
@@ -142,7 +142,7 @@
 					<img class="img-rounded" src="view/images/patient.png" alt="Generic placeholder image" width="140" height="140">
 					<h2 class="text-good">فرم بیمار</h2>
 					<p>لطفا فرم را پر کنید</p>
-					<form class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="">
+					<form id="patient_form" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" runat="server" method="post" action="">
 						<div class="form-group">
 							<asp:Button Text="ثبت فرم" id="register_patient_form" OnClick="register_patient_form_clicked" CssClass="btn btn-info box-shadow" Style="width:210px;font-size:17px;" runat="server"></asp:Button>
 						</div>
@@ -160,7 +160,6 @@
 			<p>&copy; 2015, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 		</footer>
 
-		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
 		<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

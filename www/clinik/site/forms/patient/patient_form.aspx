@@ -188,8 +188,8 @@
 							<asp:ListItem Text="متخصص قلب 1" Value="متخصص قلب 1"></asp:ListItem>
 							<asp:ListItem Text="متخصص قلب 2" Value="متخصص قلب 2"></asp:ListItem>
 							<asp:ListItem Text="متخصص عروقی 1" Value="متخصص عروقی 1"></asp:ListItem>
-							<asp:ListItem Text="متخصص عروقی 2" Value="متخصص عروقی 2"></asp:ListItem>
 						</asp:DropDownList>
+							<asp:ListItem Text="متخصص عروقی 2" Value="متخصص عروقی 2"></asp:ListItem>
 					</div>
 				</div>
 		
@@ -210,8 +210,8 @@
 				<legend><h2 class="font_nazanin">لیست اعمال جراحی که تاکنون داشته اید</h2></legend>
 				<!-------------------------------------------------------------------------------->
 
-				<div id="op-kind-patient-div" class="form-group">
 					<label for="last_operation_kind" class="col-md-2 control-label pull-right">نوع عمل جراحی</label>
+				<div id="op-kind-patient-div" class="form-group">
 					<div class="col-md-4 pull-right">
 						<asp:DropDownList id="op_kind_patient" class="form-control lightblue_input" runat="server">
 							<asp:ListItem Text="خالی"></asp:ListItem>
@@ -251,7 +251,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label pull-right"></label>
 					<div class="col-md-4 pull-right">
-						<asp:Button Text="انتخاب" id="save_list_op" CssClass="col-md-12 btn btn-primary pull-right" runat="server"></asp:Button>
+						<button type="button" id="save_list_op" class="col-md-12 btn btn-primary pull-right" onclick="save_list_op_selected()">انتخاب</button>
 					</div>
 				</div>
 		
@@ -276,7 +276,9 @@
 					</div>
 				</div>
 
+				<!------------------------------------------------------------------------------------------->
 				<legend><h2 class="font_nazanin">نام هر دارویی را که طی یکماه اخیر استفاده کردید</h2></legend>
+				<!------------------------------------------------------------------------------------------->
 					
 				<div id="drugs_list_div" class="form-group">
 					<label for="drugs_list" class="col-md-2 control-label pull-right">لیست داروها</label>
@@ -301,7 +303,7 @@
 				<div class="form-group">
 					<label class="col-md-2 control-label pull-right"></label>
 					<div class="col-md-4 pull-right">
-						<asp:Button Text="انتخاب" id="save_list_drug_used" CssClass="col-md-12 btn btn-primary pull-right" runat="server"></asp:Button>
+						<button type="button" id="save_list_drug_used" class="col-md-12 btn btn-primary pull-right" onclick="save_list_drug_used_selected()">انتخاب</button>
 					</div>
 				</div>
 
@@ -323,7 +325,9 @@
 					</div>
 				</div>
 
+				<!--------------------------------------------------------------------------------------------->
 				<legend><h2 class="font_nazanin">سوالات قبل از عمل لطفا به همه سوالات صحیح پاسخ دهید</h2></legend>
+				<!--------------------------------------------------------------------------------------------->
 
 				<div class="form-group">
 					<label class="col-md-9 control-label pull-right">آیا استروئید (کورتیزون، متیل پردنیزلون و دگزامتازون) در سال گذشته استفاده کردید؟</label>
@@ -409,7 +413,7 @@
 
 				<div class="form-group">
 					<div class="col-md-4 pull-right">
-						<asp:Button Text="انتخاب" id="save_heart_problem_list" CssClass="col-md-12 btn btn-primary pull-right" runat="server"></asp:Button>
+						<button type="button" id="save_heart_problem_list" class="col-md-12 btn btn-primary pull-right" onclick="save_heart_problem_list_selected()">انتخاب</button>
 					</div>
 				</div>
 
@@ -459,7 +463,7 @@
 
 				<div class="form-group">
 					<div class="col-md-4 pull-right">
-						<button id="check-list3" type="button" class="col-md-12 btn btn-primary pull-right">انتخاب</button>
+						<button id="breath-problem-list-choosed" type="button" class="col-md-12 btn btn-primary pull-right" onclick="breath-problem-list-choosed_selected">انتخاب</button>
 					</div>
 				</div>
 
@@ -869,5 +873,7 @@
 		<script src="../../../view/bootstrap/js/bootstrap.min.js"></script>
 		<script src="../../../view/bootstrap-switch-master/dist/js/bootstrap-switch.min.js"></script>
 		<script src="../../../view/javascript/clinic_api/bootstrap-switch-initial.js"></script>
+		<script src="../../../view/javascript/clinic_api/custom.js"></script>
+
 	</body>
 </html>

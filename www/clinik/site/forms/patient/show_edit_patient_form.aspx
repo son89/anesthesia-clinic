@@ -17,8 +17,6 @@
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
 		<link href="../../../view/css/custom.css" rel="stylesheet">
-		<!--cant place it end of page. because we use sript manager but if its jquary perhaps can-->
-		<script src="../../../view/javascript/clinic_api/custom.js"></script>
 	</head>
 
 	<body class="background">
@@ -885,5 +883,7 @@
 		<script src="../../../view/bootstrap/js/bootstrap.min.js"></script>
 		<script src="../../../view/bootstrap-switch-master/dist/js/bootstrap-switch.min.js"></script>
 		<script src="../../../view/javascript/clinic_api/bootstrap-switch-initial.js"></script>
+		<script src="../../../view/javascript/clinic_api/custom.js"></script>
+
 	</body>
 </html>

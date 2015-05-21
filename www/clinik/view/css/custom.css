@@ -2,3 +2,11 @@
 {
 	background-color: #E8F0F0;
 }
+.custom_label
+{
+	text-align: center;
+	vertical-align: middle;
+	font-size:15px;
+	height: 36px;
+	line-height: 27px;
+}

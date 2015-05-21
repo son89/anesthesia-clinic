@@ -57,13 +57,9 @@ namespace clinik {
 		
 		protected System.Web.UI.WebControls.DropDownList problem_during_op;
 		
-		protected System.Web.UI.WebControls.Button save_list_op;
-		
 		protected System.Web.UI.WebControls.DropDownList drugs_list;
 		
 		protected System.Web.UI.WebControls.TextBox drugs_explain;
-		
-		protected System.Web.UI.WebControls.Button save_list_drug_used;
 		
 		protected System.Web.UI.HtmlControls.HtmlInputCheckBox steroid_corti;
 		
@@ -84,8 +80,6 @@ namespace clinik {
 		protected System.Web.UI.HtmlControls.HtmlInputCheckBox heart_problem;
 		
 		protected System.Web.UI.WebControls.DropDownList heart_problem_list;
-		
-		protected System.Web.UI.WebControls.Button save_heart_problem_list;
 		
 		protected System.Web.UI.HtmlControls.HtmlInputCheckBox blood_presure;
 		

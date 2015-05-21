@@ -1,8 +1,38 @@
 ﻿<Properties StartupItem="clinik/clinik.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="iceweasel" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/main.aspx">
+    <Files>
+      <File FileName="clinik/main.aspx" Line="7" Column="21" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="clinik" expanded="True">
+            <Node name="clinik" expanded="True">
+              <Node name="site" expanded="True">
+                <Node name="forms" expanded="True">
+                  <Node name="patient" expanded="True">
+                    <Node name="show_edit_patient_form.aspx" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="logins" expanded="True">
+                  <Node name="patient_login" expanded="True">
+                    <Node name="patient_login.aspx" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="main.aspx" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/var/www/clinik/main.aspx.cs" line="16" column="1" />
+      <Breakpoint file="/var/www/clinik/main.aspx.cs" line="44" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

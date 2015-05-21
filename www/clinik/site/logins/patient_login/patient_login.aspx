@@ -5,6 +5,7 @@
 
 	<head runat="server">
 		<title>مشاهده یا ویرایش فرم پر شده</title>
+		<meta name="author" content="m.gh@linuxmail.org">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="clinik">
@@ -12,7 +13,6 @@
 		<link rel="icon" href="../../../view/icons/favicon.ico">
 
 		<link href="../../../view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../../../view/css/carousel.css" rel="stylesheet">
 		<link href="../../../view/css/font.css" rel="stylesheet">
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
 		<link href="../../../view/css/background.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 			<form class="" id="patient_login_with_trace_code" method="post" action="../../forms/patient/show_edit_patient_form.aspx" runat="server">
 				<div class="form-group">
 					<label class="h2">کد پیگیری</label>
-					<asp:TextBox CssClass="form-control lightblue_input" id="trace_code" placeholder="کد پیگیری را وارد کنید" runat="server"/>
+					<asp:TextBox id="trace_code" CssClass="form-control lightblue_input" placeholder="کد پیگیری را وارد کنید" runat="server"/>
 				</div>
 				<asp:Button Text="ورود" UseSubmitBehavior="true" CssClass="btn btn-info box-shadow pull-right col-md-6" runat="server"></asp:Button>
 			</form>
