@@ -1,5 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="doctor_login.aspx.cs" Inherits="clinik.doctor_login" %>
+﻿<%@ Page Language="C#" CodeBehind="doctor_login.aspx.cs" Inherits="clinik.doctor_login" %>
 <!DOCTYPE html>
+
 <html lang="fa">
 
 	<head runat="server">
@@ -22,7 +23,7 @@
 	    <div class="container">
 	        <div class="card card-container">
 	            <img id="profile-img" class="profile-img-card" src="../../../view/images/avatar.png" />
-	            <form class="form-signin" runat="server">
+	            <form id="form_login" class="form-signin" runat="server" method="post">
 	                <span id="reauth-email" class="reauth-email"></span>
 	                <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
 	                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>

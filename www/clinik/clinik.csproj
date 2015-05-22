@@ -257,6 +257,7 @@
     <Content Include="view\sb-admin\js\bootstrap.min.js" />
     <Content Include="view\sb-admin\js\jquery.js" />
     <Content Include="view\images\50x50.gif" />
+    <Content Include="site\panel\doctor_panel_all_form.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -307,6 +308,12 @@
       <DependentUpon>patient_login.aspx</DependentUpon>
     </Compile>
     <Compile Include="classes\clinic_api\clinik_api.cs" />
+    <Compile Include="site\panel\doctor_panel_all_form.aspx.cs">
+      <DependentUpon>doctor_panel_all_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\panel\doctor_panel_all_form.aspx.designer.cs">
+      <DependentUpon>doctor_panel_all_form.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

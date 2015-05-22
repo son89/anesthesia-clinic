@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="fa">
+
 	<head runat="server">
 		<title>کلینیک بیهوشی</title>
 		<meta name="author" content="m.gh@linuxmail.org">
@@ -16,11 +17,9 @@
 		<link href="view/css/shadow.css" rel="stylesheet">
 		<link href="view/css/background.css" rel="stylesheet">
 		<link href="view/css/custom.css" rel="stylesheet">
-
-		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
-		<script src="view/javascript/clinic_api/custom.js"></script>
 	</head>
-	<body class="background">
+
+		<body class="background">
 		<!-- menu_bar -->
 		<div class="navbar-wrapper font_nazanin">
 			<div class="container">
@@ -160,6 +159,7 @@
 			<p>&copy; 2015, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 		</footer>
 
+		<script src="view/javascript/jquary/jquery-2.1.3.min.js"></script>
 		<script src="view/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

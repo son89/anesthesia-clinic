@@ -12,5 +12,7 @@ namespace clinik {
 	
 	
 	public partial class doctor_panel {
+		
+		protected System.Web.UI.WebControls.HyperLink name_family_label;
 	}
 }

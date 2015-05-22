@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Text;
 using System.Web;
 using System.Web.UI;
-using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using System.Security.Cryptography;
-
 
 namespace clinik
 {
@@ -18,11 +14,27 @@ namespace clinik
 				if( Session["is_valid"] == "True" )
 				{
 					Session["is_valid"] = null;
+					Session["username"] = Request.Form["username"];
+					Session["password"] = Request.Form["password"];
+					Session["he_is_admin"] = "True";
 					Response.Redirect( "site/panel/doctor_panel.aspx" );
 				}
 				else if( Session["is_valid"] == "False" )
 				{
-					ClientScript.RegisterStartupScript(GetType(), "key", "wrong_username_or_password();", true);
+					//div
+					Panel wrong_password_div = new Panel();
+					wrong_password_div.ID = "worng_password";
+					wrong_password_div.CssClass = "form-group";
+					//span
+					Label wrong_password_span = new Label();
+					wrong_password_span.Text = "پسورد اشتباه وارد شده است";
+					wrong_password_span.CssClass = "label label-success box-shadow custom_label col-lg-12";
+					wrong_password_div.Controls.Add (wrong_password_span);
+					// add to doctor form
+					doctor_form.Controls.AddAt(0,wrong_password_div);
+					//set focus
+					doctor_form.Focus ();
+					// clear session
 					Session["is_valid"] = "True";
 				}
 			}

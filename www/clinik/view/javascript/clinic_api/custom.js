@@ -1,11 +1,4 @@
-﻿function wrong_username_or_password()
-{
-	if( $("#worng_password").length == false)
-	{
-    	$( "#doctor_form" ).prepend( '<div id="worng_password" class="form-group"><span class="label label-success box-shadow custom_label col-lg-12" >پسورد اشتباه وارد شده است</span></div>' );
-	}
-}
-function test_alert()
+﻿function test_alert()
 {
 	 alert("Hello! I am an alert box!!");
 }

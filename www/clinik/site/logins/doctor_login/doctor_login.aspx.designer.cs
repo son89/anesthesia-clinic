@@ -7,7 +7,7 @@ namespace clinik
 	
 	public partial class doctor_login
 	{
-		
+		protected System.Web.UI.HtmlControls.HtmlForm form_login;
 	}
 }
 
