@@ -13,6 +13,6 @@ namespace clinik {
 	
 	public partial class doctor_panel_all_form {
 		
-		protected System.Web.UI.HtmlControls.HtmlForm form1;
+		protected System.Web.UI.WebControls.HyperLink name_family_label;
 	}
 }

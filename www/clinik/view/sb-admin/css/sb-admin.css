@@ -6,25 +6,28 @@
 
 /* Global Styles */
 
-body {
+body
+ {
     margin-top: 100px;
     background-color: #222;
 }
 
-@media(min-width:768px) {
+@media(min-width:768px)
+{
     body {
         margin-top: 50px;
     }
 }
 
-#wrapper {
+#wrapper
+{
     padding-left: 0;
 }
 
-#page-wrapper {
+#page-wrapper
+{
     width: 100%;
     padding: 0;
-    background-color: #fff;
 }
 
 .huge {

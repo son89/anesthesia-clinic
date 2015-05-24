@@ -28,7 +28,7 @@ namespace clinik
 					//span
 					Label wrong_password_span = new Label();
 					wrong_password_span.Text = "پسورد اشتباه وارد شده است";
-					wrong_password_span.CssClass = "label label-success box-shadow custom_label col-lg-12";
+					wrong_password_span.CssClass = "label label-success box-shadow custom_label col-lg-12 col-md-12 col-sm-12 col-xs-12";
 					wrong_password_div.Controls.Add (wrong_password_span);
 					// add to doctor form
 					doctor_form.Controls.AddAt(0,wrong_password_div);

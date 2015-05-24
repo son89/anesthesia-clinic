@@ -36,7 +36,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-	                <a class="navbar-brand" href="doctor panel">پنل دکترین</a>
+	                <a class="navbar-brand" href="doctor_panel.aspx">پنل دکترین</a>
 	            </div>
 	            <!-- Top Menu Items -->
 	            <ul class="nav navbar-right top-nav">
@@ -145,7 +145,7 @@
 	            <div class="collapse navbar-collapse navbar-ex1-collapse">
 	                <ul class="nav navbar-nav side-nav">
 	                    <li class="active">
-	                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+	                        <a href="doctor_panel.aspx"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 	                    </li>
 	                    <li>
 	                        <a href="doctor_panel_all_form.aspx"><i class="fa fa-fw fa-bar-chart-o"></i> مشاهده همه ی فرم ها</a>
@@ -195,7 +195,7 @@
 	                        </h1>
 	                        <ol class="breadcrumb">
 	                            <li>
-	                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+	                                <i class="fa fa-dashboard"></i>  <a href="doctor_panel.aspx">پنل</a>
 	                            </li>
 	                            <li class="active">
 	                                <i class="fa fa-file"></i> Blank Page

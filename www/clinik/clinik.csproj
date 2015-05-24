@@ -258,6 +258,8 @@
     <Content Include="view\sb-admin\js\jquery.js" />
     <Content Include="view\images\50x50.gif" />
     <Content Include="site\panel\doctor_panel_all_form.aspx" />
+    <Content Include="view\css\table_with_filter.css" />
+    <Content Include="view\javascript\clinic_api\table_with_filter.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">

@@ -6,7 +6,6 @@ using Npgsql;
 
 namespace clinik
 {
-	
 	public partial class patient_form : System.Web.UI.Page
 	{
 		public void btn_send_clicked( object sender, EventArgs e )
@@ -19,7 +18,6 @@ namespace clinik
 
 			bool valid_insert = true;
 			object patient_id = -1;
-
 			// insert_1
 			pg.open ();
 			string temp_1 = "insert into patients_basic_informations values(default, '"
@@ -45,7 +43,6 @@ namespace clinik
 			{
 				pg.disconnect ();
 			}
-
 			// insert_2
 			pg.open ();
 			string temp_2 = "insert into patients_ppo_from_informations values(" + patient_id.ToString ()
@@ -67,7 +64,6 @@ namespace clinik
 			{
 				pg.disconnect ();
 			}
-
 			// check random_trace_code with database_trace_code
 			string get_trace_code = "select trace_code from patients_basic_informations where id = " + patient_id + ";";
 			string trace_code_from_database = "";
@@ -104,7 +100,6 @@ namespace clinik
 				Console.WriteLine ("سرور به مشکل برخورد کرده است و بزودی حل میشود. لطفا اطلاعات را دستی پر کنید.همجنین میتوناید از اطلاعات پرینت گرفته و به دکتر مربوطه ارایه دهید.");
 				// sms & email to admins
 			}
-			//Request.Form["username"], Request.Form["password"]
 		}
 	}
 }

@@ -13,9 +13,9 @@ namespace clinik
 			{
 				if( Session["is_valid"] == "True" )
 				{
-					Session["is_valid"] = null;
 					Session["username"] = Request.Form["username"];
 					Session["password"] = Request.Form["password"];
+					Session["is_valid"] = null;
 					Session["he_is_admin"] = "True";
 					Response.Redirect( "../../panel/doctor_panel.aspx" );
 				}
@@ -28,14 +28,16 @@ namespace clinik
 					//span
 					Label wrong_password_span = new Label();
 					wrong_password_span.Text = "پسورد اشتباه وارد شده است";
-					wrong_password_span.CssClass = "label label-success box-shadow custom_label col-lg-12";
+					wrong_password_span.CssClass = "label label-success box-shadow custom_label col-lg-12 col-md-12 col-sm-12 col-xs-12";
+					wrong_password_span.Style.Value = "margin-bottom: 10px;";
 					wrong_password_div.Controls.Add (wrong_password_span);
 					// add to doctor login form
 					form_login.Controls.AddAt(0,wrong_password_div);
 					//set focus
 					form_login.Focus ();
 					// clear session
-					Session["is_valid"] = "True";
+					Session ["is_valid"] = null;
+					Session ["he_is_admin"] = null;
 				}
 			}
 		}

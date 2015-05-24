@@ -4,7 +4,7 @@
 <html lang="fa">
 
 	<head runat="server">
-		<title>doctor register</title>
+		<title>doctor login</title>
 		<meta name="author" content="m.gh@linuxmail.org">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,6 @@
 		<link href="../../../view/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../../../view/css/font.css" rel="stylesheet">
 		<link href="../../../view/css/shadow.css" rel="stylesheet">
-		<link href="../../../view/css/background.css" rel="stylesheet">
 		<link href="../../../view/css/custom.css" rel="stylesheet">
 	</head>
 
@@ -24,7 +23,6 @@
 	        <div class="card card-container">
 	            <img id="profile-img" class="profile-img-card" src="../../../view/images/avatar.png" />
 	            <form id="form_login" class="form-signin" runat="server" method="post">
-	                <span id="reauth-email" class="reauth-email"></span>
 	                <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
 	                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 	                <div id="remember" class="checkbox">
