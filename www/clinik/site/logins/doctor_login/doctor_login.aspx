@@ -22,7 +22,7 @@
 	    <div class="container">
 	        <div class="card card-container">
 	            <img id="profile-img" class="profile-img-card" src="../../../view/images/avatar.png" />
-	            <form id="form_login" class="form-signin" runat="server" method="post">
+	            <form id="form_login" class="form-signin form-horizontal" method="post" runat="server">
 	                <input type="text" name="username" id="username" class="form-control" placeholder="username" required>
 	                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
 	                <div id="remember" class="checkbox">
@@ -30,7 +30,7 @@
 	                        <input type="checkbox" value="remember-me"> Remember me
 	                    </label>
 	                </div>
-	                <asp:Button runat="server" id="btn_login_doctor" UseSubmitBehavior="true" CssClass="btn btn-lg btn-primary btn-block btn-signin" Text="Sign in" OnClick="btn_login_doctor_click"></asp:Button>
+	                <asp:Button id="btn_login_doctor" CssClass="btn btn-lg btn-primary btn-block btn-signin" Style="margin-top:10px" Text="Sign in" OnClick="btn_login_doctor_click" runat="server"></asp:Button>
 	            </form>
 	            <a href="#" class="forgot-password">
 	                forgot the password?

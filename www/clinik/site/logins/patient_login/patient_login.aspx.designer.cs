@@ -17,6 +17,8 @@ namespace clinik {
 		
 		protected System.Web.UI.WebControls.TextBox trace_code;
 		
+		protected System.Web.UI.WebControls.Button btn_trace_code;
+		
 		protected System.Web.UI.HtmlControls.HtmlForm patient_login_with_name_and_last_name;
 		
 		protected System.Web.UI.WebControls.TextBox name;

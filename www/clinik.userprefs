@@ -1,10 +1,25 @@
 ﻿<Properties StartupItem="clinik/clinik.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="chromium-browser" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="iceweasel" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="clinik/classes/clinic_api/clinik_api.cs">
+    <Files>
+      <File FileName="clinik/classes/clinic_api/clinik_api.cs" Line="122" Column="52" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="clinik" expanded="True">
+            <Node name="clinik" expanded="True">
+              <Node name="site" expanded="True">
+                <Node name="forms" expanded="True" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/var/www/clinik/site/panel/doctor_panel.aspx.cs" line="12" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

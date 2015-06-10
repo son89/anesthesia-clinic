@@ -22,12 +22,12 @@
 	<body class="background font_nazanin" dir="rtl">
 		<div class="container">
 			<legend><h2 class="font_nazanin">ورود با کدپیگیری</h2></legend>
-			<form class="" id="patient_login_with_trace_code" method="post" action="../../forms/patient/show_edit_patient_form.aspx" runat="server">
+			<form class="" id="patient_login_with_trace_code" method="post" runat="server">
 				<div class="form-group">
 					<label class="h2">کد پیگیری</label>
 					<asp:TextBox id="trace_code" CssClass="form-control lightblue_input" placeholder="کد پیگیری را وارد کنید" runat="server"/>
 				</div>
-				<asp:Button Text="ورود" UseSubmitBehavior="true" CssClass="btn btn-info box-shadow pull-right col-md-6" runat="server"></asp:Button>
+				<asp:Button id="btn_trace_code" Text="ورود" CssClass="btn btn-info box-shadow pull-right col-md-6" OnClick="btn_trace_code_clicked" runat="server"></asp:Button>
 			</form>
 		</div>
 

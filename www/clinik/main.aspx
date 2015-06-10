@@ -62,8 +62,8 @@
 		</div>
 		<!-- end_menu_bar -->
 
-		<!-- slide_show -->
-		<div id="sample" class="carousel slide" data-ride="carousel">
+		<!-- slide_show with box-shadow-->
+		<div id="sample" class="carousel slide box-shadow" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#sample" data-slide-to="0" class="active"></li>
@@ -120,7 +120,7 @@
 					<img class="img-rounded" src="view/images/doctor-drawing.png" width="115" height="140">
 					<h2 class="text-good">ورود متخصص</h2>
 					<p>پنل متخصصین</p>
-					<form id="doctor_form" runat="server" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" action="" dir="ltr">
+					<form id="doctor_form" class="form-horizontal col-lg-offset-3 col-lg-6 col-lg-offset-3" method="post" dir="ltr" runat="server">
 						<div class="form-group">
 							<input name="username" type="text" class="lightblue_input form-control" id="username" placeholder="username">
 						</div>
@@ -131,7 +131,7 @@
 							<input type="checkbox"> Remmember me
 						</div>
 						<div class="form-group">
-							<asp:Button runat="server" id="btn_login_doctor" UseSubmitBehavior="true" CssClass="btn btn-info pull-right box-shadow" Text="log in" Style="width:100px" OnClick="btn_login_doctor_click"/>
+							<asp:Button id="btn_login_doctor" CssClass="btn btn-info pull-right box-shadow col-md-6 col-lg-5" Text="log in" OnClick="btn_login_doctor_click" runat="server"></asp:Button>
 						</div>
 					</form>
 				</div>
